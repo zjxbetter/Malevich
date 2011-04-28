@@ -143,7 +143,7 @@ function createNewComment(el, id, stamp, insertAfter) {
     // This mirrors code in AddCommentToCell in Default.aspx.cs to maintain consistent spacing.
     var html =
   '<div class="Edit">' +
-    '<textarea rows="6" cols="0" ' + 
+    '<textarea rows="6" cols="0" ' +
         '"onkeyup="textAreaAutoSize(\'{commentId}\');">{commentText}</textarea>' +
     '<div class="Buttons">' +
       '<input class="button" type="button" value="submit" ' +
@@ -184,12 +184,12 @@ function createNewComment(el, id, stamp, insertAfter) {
     comment.edit_textarea.keyup();
 
     comment.edit.find('.button').button();
-    
-    showElement(newComment, function() {
+
+    showElement(newComment, function () {
         newComment.find('div.Edit > textarea').focus();
         newComment.find('div.Edit > textarea').select();
     });
-    
+
     last_comment_id = commentId;
 }
 
@@ -201,7 +201,7 @@ function deleteComment(commentId, callback) {
     var comment = $('#' + commentId);
     if (comment.length == 1) {
         removeCommentFromServer(commentId);
-        hideElement(comment, function() {
+        hideElement(comment, function () {
             comment.remove();
             callback && callback();
         });
@@ -217,7 +217,7 @@ function deleteLastCommentIfEmpty(callback) {
     if (last_comment_id) {
         var c = getComment(last_comment_id);
         if (c && c.edit_textarea.text() == COMMENT_PROMPT) {
-            deleteComment(last_comment_id, function() {
+            deleteComment(last_comment_id, function () {
                 last_comment_id = null;
                 callback && callback();
             });
@@ -248,7 +248,7 @@ function editExistingComment(commentId) {
 
     c.edit_textarea.text(c.display_body.text());
 
-    hideElement(c.display, function() {
+    hideElement(c.display, function () {
         c.edit.find('[value=remove]:button').show();
         showElement(c.edit);
     });
@@ -325,16 +325,17 @@ function onSubmitComment(event) {
     if (!c)
         return null;
 
-    if (!c.edit_textarea.text() || c.edit_textarea.text() == COMMENT_PROMPT) {
+    var commentText = c.edit_textarea.val();
+    if (!commentText || commentText == COMMENT_PROMPT) {
         deleteComment(c.id);
         return;
     }
 
     // Copy over the value.
-    c.display_body.text(c.edit_textarea.text());
+    c.display_body.text(commentText);
 
     // Show display DIV, hide edit DIV.
-    hideElement(c.edit, function() {
+    hideElement(c.edit, function () {
         showElement(c.display);
     });
 
@@ -360,7 +361,7 @@ function onCancelComment(event) {
     }
 
     // Show display DIV, hide edit DIV.
-    hideElement(c.edit, function() {
+    hideElement(c.edit, function () {
         showElement(c.display);
     });
 }
@@ -422,7 +423,7 @@ function onMouseClick(event, autoCollapse, clickLineNumberOnly) {
         if (clickLineNumberOnly)
             return;
         if (autoCollapse)
-            deleteLastCommentIfEmpty(function() {
+            deleteLastCommentIfEmpty(function () {
                 createNewComment(el, id, null, null);
             });
         else
@@ -435,7 +436,7 @@ function onMouseClick(event, autoCollapse, clickLineNumberOnly) {
         if (!el)
             return;
         if (autoCollapse)
-            deleteLastCommentIfEmpty(function() {
+            deleteLastCommentIfEmpty(function () {
                 createNewComment(el, id, null, null);
             });
         else
@@ -446,7 +447,7 @@ function onMouseClick(event, autoCollapse, clickLineNumberOnly) {
              el.nodeName != 'INPUT') {
         var commentId = [pos[0], pos[1], pos[2], pos[3], pos[4]].join("_");
         if (autoCollapse && commentId != last_comment_id)
-            deleteLastCommentIfEmpty(function() {
+            deleteLastCommentIfEmpty(function () {
                 editExistingComment(commentId);
             });
         else
