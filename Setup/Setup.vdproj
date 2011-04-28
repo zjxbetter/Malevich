@@ -7,10 +7,10 @@
 "LanguageId" = "3:1033"
 "CodePage" = "3:1252"
 "UILanguageId" = "3:1033"
-"SccProjectName" = "8:SAK"
-"SccLocalPath" = "8:SAK"
-"SccAuxPath" = "8:SAK"
-"SccProvider" = "8:SAK"
+"SccProjectName" = "8:"
+"SccLocalPath" = "8:"
+"SccAuxPath" = "8:"
+"SccProvider" = "8:"
     "Hierarchy"
     {
         "Entry"
@@ -796,24 +796,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_CA36E2A02040AD0C965F83D616B4EFC7"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_575C92DEAC6363F120A6E9BEDA2098F4"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B21845D591987DED2265D93132EBD7FC"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_FD103C2DD8034C79996ED5BC2063848C"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -905,6 +887,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_4E958045C19045C9B76A4A266706F44D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_CA36E2A02040AD0C965F83D616B4EFC7"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1009,6 +997,18 @@
         "OwnerKey" = "8:_935B8B8B0B66866883D86AB4850455C9"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_575C92DEAC6363F120A6E9BEDA2098F4"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_B21845D591987DED2265D93132EBD7FC"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -1106,7 +1106,7 @@
                 {
                 "Name" = "8:.NET Framework"
                 "Message" = "8:[VSDNETMSG]"
-                "FrameworkVersion" = "8:3.5.30729"
+                "FrameworkVersion" = "8:3.5.30729 "
                 "AllowLaterVersions" = "11:FALSE"
                 "InstallUrl" = "8:http://go.microsoft.com/fwlink/?LinkId=76617"
                 }
@@ -1427,6 +1427,11 @@
             "AssemblyAsmDisplayName" = "8:CodeReviewDataModel, Version=0.9.8.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_575C92DEAC6363F120A6E9BEDA2098F4"
+                    {
+                    "Name" = "8:CodeReviewDataModel.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:CodeReviewDataModel.dll"
             "TargetName" = "8:"
@@ -2158,6 +2163,11 @@
             "AssemblyAsmDisplayName" = "8:CommonUtils, Version=0.9.8.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_B21845D591987DED2265D93132EBD7FC"
+                    {
+                    "Name" = "8:CommonUtils.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:CommonUtils.dll"
             "TargetName" = "8:"
@@ -2355,6 +2365,11 @@
             "AssemblyAsmDisplayName" = "8:SourceControl, Version=0.9.8.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_CA36E2A02040AD0C965F83D616B4EFC7"
+                    {
+                    "Name" = "8:SourceControl.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:SourceControl.dll"
             "TargetName" = "8:"
