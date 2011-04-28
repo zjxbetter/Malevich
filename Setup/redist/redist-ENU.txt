@@ -1,0 +1,14 @@
+Subject to the license terms for the software, you may redistribute the files (unmodified) listed below.
+
+DatabaseSchemaProviders.Extensions.xml
+Microsoft.Data.Schema.dll
+Microsoft.Data.Schema.ScriptDom.dll
+Microsoft.Data.Schema.ScriptDom.Sql.dll
+Microsoft.Data.Schema.Sql.dll
+Microsoft.Data.Schema.resources.dll
+Microsoft.Data.Schema.ScriptDom.resources.dll
+Microsoft.Data.Schema.ScriptDom.Sql.resources.dll
+Microsoft.Data.Schema.Sql.resources.dll
+Microsoft.SqlTypes.dbschema
+vsdbcmd.exe
+vsdbcmd.resources.dll

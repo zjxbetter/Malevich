@@ -1,0 +1,11 @@
+﻿Dear {Reviewer},
+
+I would like a code review. Please go to http://{Webserver}/{WebRoot}/default.aspx?cid={MalevichId} to comment.
+
+If you are super busy and cannot do the review soon, kindly notify me immediately so I could plan for contingencies.
+
+  --  {Reviewee}
+
+---------
+
+{Details}

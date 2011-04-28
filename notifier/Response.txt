@@ -1,0 +1,9 @@
+﻿Dear reviewers,
+
+Thank you for your comments. Please see my responses at http://{Webserver}/{WebRoot}/default.aspx?cid={MalevichId}
+
+  -- {Reviewee}
+
+---------
+
+{Details}

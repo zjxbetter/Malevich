@@ -1,0 +1,177 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SourceControl", "SourceControl\SourceControl.csproj", "{F31CB8FF-3789-4773-BB62-6E6137FB08E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "review", "review\review.csproj", "{72710BC4-79AE-4BB3-8C57-E32881495280}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonUtils", "CommonUtils\CommonUtils.csproj", "{7360D37A-13B7-49E0-8B54-2BC647AD8A0A}"
+EndProject
+Project("{C8D11400-126E-41CD-887F-60BD40844F9E}") = "Database", "Database\Database.dbproj", "{BBA4F4FA-778C-42C3-AF3A-B5477682E203}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataModel", "DataModel\DataModel.csproj", "{005D2F22-C6A9-4DD5-B4A3-DC4B88EE6662}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "notifier", "notifier\notifier.csproj", "{E3990195-04F3-4A78-8786-B0A06F251307}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "website", "website", "{EA5E6301-1177-4D80-A448-2FC14B45769C}"
+	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = "SAK"
+		SccAuxPath = "SAK"
+		SccLocalPath = "SAK"
+		SccProvider = "SAK"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		ProjectReferences = "{7360D37A-13B7-49E0-8B54-2BC647AD8A0A}|CommonUtils.dll;{005D2F22-C6A9-4DD5-B4A3-DC4B88EE6662}|CodeReviewDataModel.dll;{BE3923E8-1BF4-47CF-8897-5A2490FA556D}|MalevichExtensions.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/website"
+		Debug.AspNetCompiler.PhysicalPath = "website\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\website\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/website"
+		Release.AspNetCompiler.PhysicalPath = "website\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\website\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "47304"
+		VWDDynamicPort = "false"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SourceControlTest", "SourceControlTest\SourceControlTest.csproj", "{D0E53032-0726-41CE-BB93-7ABB28DEB812}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Installer", "Installer\Installer.csproj", "{3E729C6A-8EA3-4963-A80B-4CFEC6254034}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{01818AA0-93DA-4B12-AABF-26A2395E0EA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MalevichExtensions", "MalevichExtensions\MalevichExtensions.csproj", "{BE3923E8-1BF4-47CF-8897-5A2490FA556D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleSyntaxHighlighter", "SampleCSharpSyntaxHighlighter\SampleSyntaxHighlighter.csproj", "{E5D54573-FDDF-4621-8147-FFA9227148DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleSyntaxHighlighterTest", "SampleCSHarpHighlighterTest\SampleSyntaxHighlighterTest.csproj", "{6ED5444E-8C1C-449D-8A97-AEFA5A8E6003}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleSyntaxHighlighterInstaller", "SampleSyntaxHighlighterInstaller\SampleSyntaxHighlighterInstaller.csproj", "{1DB733FD-2126-4719-A7FD-1F912E3342DA}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SampleSyntaxHighlighterSetup", "SampleSyntaxHighlighterSetup\SampleSyntaxHighlighterSetup.vdproj", "{D96CBE3D-E1ED-4028-8CF3-14D188A79A1A}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 16
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://wavstsapp1.corp.eproject.com:8080/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = CommonUtils\\CommonUtils.csproj
+		SccProjectName1 = CommonUtils
+		SccLocalPath1 = CommonUtils
+		SccProjectUniqueName2 = Database\\Database.dbproj
+		SccProjectName2 = Database
+		SccLocalPath2 = Database
+		SccProjectUniqueName3 = DataModel\\DataModel.csproj
+		SccProjectName3 = DataModel
+		SccLocalPath3 = DataModel
+		SccProjectUniqueName4 = Installer\\Installer.csproj
+		SccProjectName4 = Installer
+		SccLocalPath4 = Installer
+		SccProjectUniqueName5 = MalevichExtensions\\MalevichExtensions.csproj
+		SccProjectName5 = MalevichExtensions
+		SccLocalPath5 = MalevichExtensions
+		SccProjectUniqueName6 = notifier\\notifier.csproj
+		SccProjectName6 = notifier
+		SccLocalPath6 = notifier
+		SccProjectUniqueName7 = review\\review.csproj
+		SccProjectName7 = review
+		SccLocalPath7 = review
+		SccProjectUniqueName8 = SampleCSHarpHighlighterTest\\SampleSyntaxHighlighterTest.csproj
+		SccProjectName8 = SampleCSHarpHighlighterTest
+		SccLocalPath8 = SampleCSHarpHighlighterTest
+		SccProjectUniqueName9 = SampleCSharpSyntaxHighlighter\\SampleSyntaxHighlighter.csproj
+		SccProjectName9 = SampleCSharpSyntaxHighlighter
+		SccLocalPath9 = SampleCSharpSyntaxHighlighter
+		SccProjectUniqueName10 = SampleSyntaxHighlighterInstaller\\SampleSyntaxHighlighterInstaller.csproj
+		SccProjectName10 = SampleSyntaxHighlighterInstaller
+		SccLocalPath10 = SampleSyntaxHighlighterInstaller
+		SccProjectUniqueName11 = SampleSyntaxHighlighterSetup\\SampleSyntaxHighlighterSetup.vdproj
+		SccProjectName11 = SampleSyntaxHighlighterSetup
+		SccLocalPath11 = SampleSyntaxHighlighterSetup
+		SccProjectUniqueName12 = Setup\\Setup.vdproj
+		SccProjectName12 = Setup
+		SccLocalPath12 = Setup
+		SccProjectUniqueName13 = SourceControl\\SourceControl.csproj
+		SccProjectName13 = SourceControl
+		SccLocalPath13 = SourceControl
+		SccProjectUniqueName14 = SourceControlTest\\SourceControlTest.csproj
+		SccProjectName14 = SourceControlTest
+		SccLocalPath14 = SourceControlTest
+		SccWebProject15 = true
+		SccProjectUniqueName15 = website
+		SccProjectName15 = website
+		SccLocalPath15 = website
+		SccProjectEnlistmentChoice15 = 2
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F31CB8FF-3789-4773-BB62-6E6137FB08E0}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{F31CB8FF-3789-4773-BB62-6E6137FB08E0}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{F31CB8FF-3789-4773-BB62-6E6137FB08E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F31CB8FF-3789-4773-BB62-6E6137FB08E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72710BC4-79AE-4BB3-8C57-E32881495280}.Debug|Any CPU.ActiveCfg = Release|x86
+		{72710BC4-79AE-4BB3-8C57-E32881495280}.Debug|Any CPU.Build.0 = Release|x86
+		{72710BC4-79AE-4BB3-8C57-E32881495280}.Release|Any CPU.ActiveCfg = Release|x86
+		{72710BC4-79AE-4BB3-8C57-E32881495280}.Release|Any CPU.Build.0 = Release|x86
+		{7360D37A-13B7-49E0-8B54-2BC647AD8A0A}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{7360D37A-13B7-49E0-8B54-2BC647AD8A0A}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{7360D37A-13B7-49E0-8B54-2BC647AD8A0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7360D37A-13B7-49E0-8B54-2BC647AD8A0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBA4F4FA-778C-42C3-AF3A-B5477682E203}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{BBA4F4FA-778C-42C3-AF3A-B5477682E203}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{BBA4F4FA-778C-42C3-AF3A-B5477682E203}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBA4F4FA-778C-42C3-AF3A-B5477682E203}.Release|Any CPU.Build.0 = Release|Any CPU
+		{005D2F22-C6A9-4DD5-B4A3-DC4B88EE6662}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{005D2F22-C6A9-4DD5-B4A3-DC4B88EE6662}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{005D2F22-C6A9-4DD5-B4A3-DC4B88EE6662}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{005D2F22-C6A9-4DD5-B4A3-DC4B88EE6662}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3990195-04F3-4A78-8786-B0A06F251307}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{E3990195-04F3-4A78-8786-B0A06F251307}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{E3990195-04F3-4A78-8786-B0A06F251307}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3990195-04F3-4A78-8786-B0A06F251307}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA5E6301-1177-4D80-A448-2FC14B45769C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA5E6301-1177-4D80-A448-2FC14B45769C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA5E6301-1177-4D80-A448-2FC14B45769C}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA5E6301-1177-4D80-A448-2FC14B45769C}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{D0E53032-0726-41CE-BB93-7ABB28DEB812}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{D0E53032-0726-41CE-BB93-7ABB28DEB812}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{D0E53032-0726-41CE-BB93-7ABB28DEB812}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0E53032-0726-41CE-BB93-7ABB28DEB812}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E729C6A-8EA3-4963-A80B-4CFEC6254034}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{3E729C6A-8EA3-4963-A80B-4CFEC6254034}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{3E729C6A-8EA3-4963-A80B-4CFEC6254034}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E729C6A-8EA3-4963-A80B-4CFEC6254034}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01818AA0-93DA-4B12-AABF-26A2395E0EA4}.Debug|Any CPU.ActiveCfg = Release
+		{01818AA0-93DA-4B12-AABF-26A2395E0EA4}.Release|Any CPU.ActiveCfg = Release
+		{BE3923E8-1BF4-47CF-8897-5A2490FA556D}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{BE3923E8-1BF4-47CF-8897-5A2490FA556D}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{BE3923E8-1BF4-47CF-8897-5A2490FA556D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE3923E8-1BF4-47CF-8897-5A2490FA556D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5D54573-FDDF-4621-8147-FFA9227148DD}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{E5D54573-FDDF-4621-8147-FFA9227148DD}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{E5D54573-FDDF-4621-8147-FFA9227148DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5D54573-FDDF-4621-8147-FFA9227148DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6ED5444E-8C1C-449D-8A97-AEFA5A8E6003}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{6ED5444E-8C1C-449D-8A97-AEFA5A8E6003}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{6ED5444E-8C1C-449D-8A97-AEFA5A8E6003}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6ED5444E-8C1C-449D-8A97-AEFA5A8E6003}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DB733FD-2126-4719-A7FD-1F912E3342DA}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{1DB733FD-2126-4719-A7FD-1F912E3342DA}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{1DB733FD-2126-4719-A7FD-1F912E3342DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DB733FD-2126-4719-A7FD-1F912E3342DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D96CBE3D-E1ED-4028-8CF3-14D188A79A1A}.Debug|Any CPU.ActiveCfg = Release
+		{D96CBE3D-E1ED-4028-8CF3-14D188A79A1A}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

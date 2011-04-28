@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="CodeReview" Class="CodeReviewDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost;Initial Catalog=CodeReview;Integrated Security=True" SettingsObjectName="DataModel.Properties.Settings" SettingsPropertyName="CodeReviewConnectionString4" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ChangeFile" Member="ChangeFiles">
+    <Type Name="ChangeFile">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ChangeListId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LocalFileName" Type="System.String" DbType="NVarChar(512) NOT NULL" CanBeNull="false" />
+      <Column Name="ServerFileName" Type="System.String" DbType="NVarChar(512) NOT NULL" CanBeNull="false" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="ChangeFile_FileVersion" Member="FileVersions" ThisKey="Id" OtherKey="FileId" Type="FileVersion" />
+      <Association Name="ChangeList_ChangeFile" Member="ChangeList" ThisKey="ChangeListId" OtherKey="Id" Type="ChangeList" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FileVersion" Member="FileVersions">
+    <Type Name="FileVersion">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FileId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Revision" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Action" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TimeStamp" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="true" />
+      <Column Name="IsText" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsFullText" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsRevisionBase" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Text" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="FileVersion_Comment" Member="Comments" ThisKey="Id" OtherKey="FileVersionId" Type="Comment" />
+      <Association Name="ChangeFile_FileVersion" Member="ChangeFile" ThisKey="FileId" OtherKey="Id" Type="ChangeFile" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Comment" Member="Comments">
+    <Type Name="Comment">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ReviewId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FileVersionId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Line" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LineStamp" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="CommentText" Type="System.String" DbType="NVarChar(2048) NOT NULL" CanBeNull="false" />
+      <Association Name="FileVersion_Comment" Member="FileVersion" ThisKey="FileVersionId" OtherKey="Id" Type="FileVersion" IsForeignKey="true" />
+      <Association Name="Review_Comment" Member="Review" ThisKey="ReviewId" OtherKey="Id" Type="Review" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Review" Member="Reviews">
+    <Type Name="Review">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ChangeListId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TimeStamp" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="IsSubmitted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="OverallStatus" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="CommentText" Type="System.String" DbType="NVarChar(2048)" CanBeNull="true" />
+      <Association Name="Review_Comment" Member="Comments" ThisKey="Id" OtherKey="ReviewId" Type="Comment" />
+      <Association Name="Review_MailReview" Member="MailReviews" ThisKey="Id" OtherKey="ReviewId" Type="MailReview" />
+      <Association Name="ChangeList_Review" Member="ChangeList" ThisKey="ChangeListId" OtherKey="Id" Type="ChangeList" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MailChangeList" Member="MailChangeLists">
+    <Type Name="MailChangeList">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ReviewerId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ChangeListId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Reviewer_MailChangeList" Member="Reviewer" ThisKey="ReviewerId" OtherKey="Id" Type="Reviewer" IsForeignKey="true" />
+      <Association Name="ChangeList_MailChangeList" Member="ChangeList" ThisKey="ChangeListId" OtherKey="Id" Type="ChangeList" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MailReview" Member="MailReviews">
+    <Type Name="MailReview">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ReviewId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Review_MailReview" Member="Review" ThisKey="ReviewId" OtherKey="Id" Type="Review" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Reviewer" Member="Reviewers">
+    <Type Name="Reviewer">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ReviewerAlias" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ChangeListId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Reviewer_MailChangeList" Member="MailChangeLists" ThisKey="Id" OtherKey="ReviewerId" Type="MailChangeList" />
+      <Association Name="ChangeList_Reviewer" Member="ChangeList" ThisKey="ChangeListId" OtherKey="Id" Type="ChangeList" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ChangeList" Member="ChangeLists">
+    <Type Name="ChangeList">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SourceControlId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UserClient" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CL" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="TimeStamp" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Stage" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="ChangeList_ChangeFile" Member="ChangeFiles" ThisKey="Id" OtherKey="ChangeListId" Type="ChangeFile" />
+      <Association Name="ChangeList_Review" Member="Reviews" ThisKey="Id" OtherKey="ChangeListId" Type="Review" />
+      <Association Name="ChangeList_MailChangeList" Member="MailChangeLists" ThisKey="Id" OtherKey="ChangeListId" Type="MailChangeList" />
+      <Association Name="ChangeList_Reviewer" Member="Reviewers" ThisKey="Id" OtherKey="ChangeListId" Type="Reviewer" />
+      <Association Name="ChangeList_MailReviewRequest" Member="MailReviewRequests" ThisKey="Id" OtherKey="ChangeListId" Type="MailReviewRequest" />
+      <Association Name="ChangeList_Attachment" Member="Attachments" ThisKey="Id" OtherKey="ChangeListId" Type="Attachment" />
+      <Association Name="SourceControl_ChangeList" Member="SourceControl" ThisKey="SourceControlId" OtherKey="Id" Type="SourceControl" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MailReviewRequest" Member="MailReviewRequests">
+    <Type Name="MailReviewRequest">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ReviewerAlias" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ChangeListId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="ChangeList_MailReviewRequest" Member="ChangeList" ThisKey="ChangeListId" OtherKey="Id" Type="ChangeList" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserContext" Member="UserContexts">
+    <Type Name="UserContext">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="KeyName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Value" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SourceControl" Member="SourceControls">
+    <Type Name="SourceControl">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Type" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Server" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Client" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="WebsiteName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="SourceControl_ChangeList" Member="ChangeLists" ThisKey="Id" OtherKey="SourceControlId" Type="ChangeList" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Attachment" Member="Attachments">
+    <Type Name="Attachment">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ChangeListId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TimeStamp" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+      <Column Name="Link" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="ChangeList_Attachment" Member="ChangeList" ThisKey="ChangeListId" OtherKey="Id" Type="ChangeList" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AuditRecord" Member="AuditRecords">
+    <Type Name="AuditRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TimeStamp" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ChangeListId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Action" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.AddFile" Method="AddFile">
+    <Parameter Name="ChangeId" Parameter="changeId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LocalFile" Parameter="localFile" Type="System.String" DbType="NVarChar(512)" />
+    <Parameter Name="ServerFile" Parameter="serverFile" Type="System.String" DbType="NVarChar(512)" />
+    <Parameter Name="result" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AddReviewer" Method="AddReviewer">
+    <Parameter Name="ReviewerAlias" Parameter="reviewerAlias" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="ChangeListId" Parameter="changeListId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="result" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AddVersion" Method="AddVersion">
+    <Parameter Name="FileId" Parameter="fileId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Revision" Parameter="revision" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Action" Parameter="action" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TimeStamp" Parameter="timeStamp" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="IsText" Parameter="isText" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="IsFullText" Parameter="isFullText" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="IsRevisionBase" Parameter="isRevisionBase" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Text" Parameter="text" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="result" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeleteChangeList" Method="DeleteChangeList">
+    <Parameter Name="ChangeId" Parameter="changeId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeleteComment" Method="DeleteComment">
+    <Parameter Name="CommentId" Parameter="commentId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.RemoveFile" Method="RemoveFile">
+    <Parameter Name="FileId" Parameter="fileId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SubmitChangeList" Method="SubmitChangeList">
+    <Parameter Name="ChangeId" Parameter="changeId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AddComment" Method="AddComment">
+    <Parameter Name="FileVersion" Parameter="fileVersion" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Line" Parameter="line" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LineStamp" Parameter="lineStamp" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Text" Parameter="text" Type="System.String" DbType="NVarChar(2048)" />
+    <Parameter Name="result" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AddReview" Method="AddReview">
+    <Parameter Name="ChangeId" Parameter="changeId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Text" Parameter="text" Type="System.String" DbType="NVarChar(2048)" />
+    <Parameter Name="Status" Parameter="status" Type="System.Byte" DbType="TinyInt" />
+    <Parameter Name="Result" Parameter="result" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SubmitReview" Method="SubmitReview">
+    <Parameter Name="ReviewId" Parameter="reviewId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AddChangeList" Method="AddChangeList">
+    <Parameter Name="SourceControl" Parameter="sourceControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserClient" Parameter="userClient" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="CL" Parameter="cL" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="TimeStamp" Parameter="timeStamp" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="result" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AddReviewRequest" Method="AddReviewRequest">
+    <Parameter Name="ChangeListId" Parameter="changeListId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ReviewerAlias" Parameter="reviewerAlias" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SetUserContext" Method="SetUserContext">
+    <Parameter Name="key" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="value" Type="System.String" DbType="NVarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AddAttachment" Method="AddAttachment">
+    <Parameter Name="ChangeId" Parameter="changeId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="Link" Parameter="link" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="result" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.RenameChangeList" Method="RenameChangeList">
+    <Parameter Name="ChangeId" Parameter="changeId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NewCL" Parameter="newCL" Type="System.String" DbType="NVarChar(128)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ReopenChangeList" Method="ReopenChangeList">
+    <Parameter Name="ChangeId" Parameter="changeId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

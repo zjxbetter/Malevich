@@ -1,0 +1,17 @@
+﻿Dear potential reviewer,
+
+I am in need of your professional opinion. Could you do a code review for me?
+
+To accept the review request (thank you! thank you! thank you!), click on this link: http://{Webserver}/{WebRoot}/default.aspx?cid={MalevichId}&action=makemereviewer
+
+To learn more about this change, please go to http://{Webserver}/{WebRoot}/default.aspx?cid={MalevichId}
+
+You can add yourself as a reviewer there as well.
+
+Thank you very, very much!
+
+  --  {Reviewee}
+
+---------
+
+{Details}

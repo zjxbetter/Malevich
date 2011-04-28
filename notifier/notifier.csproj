@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E3990195-04F3-4A78-8786-B0A06F251307}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ReviewNotifier</RootNamespace>
+    <AssemblyName>ReviewNotifier</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ILog.cs" />
+    <Compile Include="MailTemplates.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\com.microsoft.mail.wcf\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Service References\com.microsoft.mail.wcf\messages.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.AddDelegateResponseMessageType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.ApplyConversationActionResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.ConvertIdResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.CopyFolderResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.CopyItemResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.CreateAttachmentResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.CreateFolderResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.CreateItemResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.CreateManagedFolderResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.CreateUserConfigurationResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.DeleteAttachmentResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.DeleteFolderResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.DeleteItemResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.DeleteUserConfigurationResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.DisconnectPhoneCallResponseMessageType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.EmptyFolderResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.ExpandDLResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.ExportItemsResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.FindConversationResponseMessageType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.FindFolderResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.FindItemResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.FindMessageTrackingReportResponseMessageType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.GetAttachmentResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.GetDelegateResponseMessageType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.GetEventsResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.GetFolderResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.GetInboxRulesResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.GetItemResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.GetMailTipsResponseMessageType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.GetMessageTrackingReportResponseMessageType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.GetPhoneCallInformationResponseMessageType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.GetRoomListsResponseMessageType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.GetRoomsResponseMessageType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.GetServerTimeZonesResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.GetServiceConfigurationResponseMessageType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.GetSharingFolderResponseMessageType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.GetSharingMetadataResponseMessageType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.GetStreamingEventsResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.GetUserAvailabilityResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.GetUserConfigurationResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.GetUserOofSettingsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.MoveFolderResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.MoveItemResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.PlayOnPhoneResponseMessageType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.RefreshSharingFolderResponseMessageType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.RemoveDelegateResponseMessageType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.ResolveNamesResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.SendItemResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.ServerVersionInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.SetUserOofSettingsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.SubscribeResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.SyncFolderHierarchyResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.SyncFolderItemsResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.UnsubscribeResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.UpdateDelegateResponseMessageType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.UpdateFolderResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.UpdateInboxRulesResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.UpdateItemResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.UpdateUserConfigurationResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\ReviewNotifier.com.microsoft.mail.wcf.UploadItemsResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\com.microsoft.mail.wcf\Services.wsdl" />
+    <None Include="Service References\com.microsoft.mail.wcf\types.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataModel\DataModel.csproj">
+      <Project>{005D2F22-C6A9-4DD5-B4A3-DC4B88EE6662}</Project>
+      <Name>DataModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonUtils\CommonUtils.csproj">
+      <Project>{7360D37A-13B7-49E0-8B54-2BC647AD8A0A}</Project>
+      <Name>CommonUtils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Invite.html" />
+    <Content Include="Invite.txt" />
+    <Content Include="Iteration.html" />
+    <Content Include="Iteration.txt" />
+    <Content Include="Reminder.html" />
+    <Content Include="Reminder.txt" />
+    <Content Include="Request.html" />
+    <Content Include="Request.txt" />
+    <Content Include="Response.html" />
+    <Content Include="Response.txt" />
+    <None Include="Service References\com.microsoft.mail.wcf\configuration91.svcinfo" />
+    <None Include="Service References\com.microsoft.mail.wcf\configuration.svcinfo" />
+    <None Include="Service References\com.microsoft.mail.wcf\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Subjects.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\com.microsoft.mail.wcf\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

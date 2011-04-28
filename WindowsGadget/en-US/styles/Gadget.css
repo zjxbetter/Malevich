@@ -1,0 +1,110 @@
+﻿body
+{
+	position: absolute;
+	padding: 0;
+	margin: 0;
+	font-size: 10px;
+	font-family: Calibri;
+	color: Black;
+	left: 0px;
+	top: 0px;
+	width: 120px;
+	height: 100px;
+}
+
+#docked 
+{
+	position: absolute;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	vertical-align: top;
+	background-image: url("../../images/Background.png");
+	background-repeat: no-repeat;
+}
+#refreshButton
+{
+	position: absolute;
+	left: 100px;
+	top: 4px;
+	padding: 0;
+	margin: 0;
+}
+#startStop
+{
+	position: absolute;
+	left: 100px;
+	top: 80px;
+	padding: 0;
+	margin: 0;
+}
+
+
+#debugButton
+{
+	position: absolute;
+	left: 6px;
+	top:4px;
+	padding: 0;
+	margin: 0;
+}
+
+#title, #status, #contentPage, #contentDebugPage
+{
+	position: absolute;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	font-size: 10px;
+	color: Black;
+	font-family: Calibri;
+}
+
+#title, #status
+{
+	left: 10px;
+	width: 100px;
+	text-align: center;
+}
+
+#title
+{
+	top: 2px;
+	font-size: 12px;
+}
+
+#status
+{
+	top: 85px;
+}
+
+#contentPage, #contentDebugPage
+{
+	left: 2px;
+	top: 18px;
+	font-size: 11px;
+	width: 116px;
+	height: 65px;
+	overflow: auto;
+}
+
+#reviewTable
+{
+	width: 100%;
+}
+#reviewTable, #reviewTable tr, #reviewTable td
+{
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	font-family: Calibri;
+	font-size: 11px;
+}
+
+#totalRequestsPending, #totalResponsesPending, #totalActive
+{
+	
+}
+
+	
+#undocked
+{
+	visibility: hidden;
+}

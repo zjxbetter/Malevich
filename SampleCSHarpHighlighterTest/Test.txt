@@ -1,0 +1,182 @@
+﻿start new file cpp
+C++ parser test
+// Line comment.
+char c; // another comment
+
+char c = '"';
+char *pc = "Hello, 'world'!";
+wchar_t c;
+
+printf("Hello"); /* This should be green!
+
+"And this!"
+
+"And this!" */ char *c = "but not this - this should be red!"
+
+class X /* in C++ this should be parsed */
+{
+public:
+    int i;
+    int j;
+}
+
+if (this.hello) /* C++ should know what this is */
+   DoSomething();
+
+if
+#if
+#ifdef
+#ifndef
+
+Simple string constant: "This \"is\" a string!"
+Char constant: '\'' and '\"' and '"' and 'a'
+Unterminated string constant: "here
+Unterminated character constant: 't
+Multiline string: "This \
+is \
+a \
+string!"
+
+start new file c
+C parser test
+// Line comment.
+char c; // another comment
+wchar_t c;
+
+printf("Hello"); /* This should be green!
+
+"And this!"
+
+"And this!" */ char *c = "but not this - this should be red!"
+
+class X /* in C should not know C++ keywords */
+{
+public:
+    int i;
+    int j;
+}
+
+if (this.hello) /* C should NOT know what this is */
+   DoSomething();
+
+Simple string constant: "This \"is\" a string!"
+Char constant: '\'' and '\"' and '"' and 'a'
+Unterminated string constant: "here
+Unterminated character constant: 't
+Multiline string: "This \
+is \
+a \
+string!"
+
+start new file cs
+C# parser test
+
+char Win32; // in should not be treated as a keyword!
+
+//
+// This should be green
+//
+
+Console.WriteLine("Hello"); /* This should be green!
+
+"And this!"
+
+"And this!" */"but not this - this should be red!"
+
+Simple keywords:
+
+if (this.is a_code)
+{
+}
+
+char c;
+wchar_t c;
+
+if
+
+switch
+
+switch(c)
+
+    switch(c)
+
+Simple string constant: "This \"is\" a string!"
+Verbatim string constant: @"This ""is"" a string!"
+Char constant: '\'' and '\"' and '"' and 'a'
+Unterminated string constant: "here
+Unterminated character constant: 't
+Multiline verbatim string: @"This
+is
+a
+string!"
+
+This needs to be also treated separately: "\\" and '\\' should not spill!
+
+Line breaking tests:
+
+01234567890123456789012345678901234567890123456789012345678901234567890123456789<--the text should have broken here!
+"123456789012345678901234567890123456789012345678901234567890123456789012345678"<--the text should have broken here!
+0123456789"12345678901234567890123456789012345678901234567890123456789012345678"<--the text should have broken here!
+0123456789"1234567890123456789012345678901234567890123456789012345678"0123456780<--the text should have broken here!
+0123456789/*234567890123456789012345678901234567890123456789012345678*/123456780<--the text should have broken here!
+
+start new file xml
+XML parser test:
+<element />
+Hello!
+<element>
+    Hello
+</element>
+
+<!-- A few
+     lines of comments! -->
+
+<!-- A single line comment -->
+
+<element attr1="attribute text 1" attr2 = "attribute text 2" />
+
+<element attr1="attribute text 1"
+         attr2 = "attribute text 2" />
+
+<element attr1='attribute "quoted" text 1'
+         attr2 = "attribute 'quoted' text 2" />
+
+<![CDATA[<a><b>sdsd<c><d>]]>
+
+<![CDATA[<a><b>sd
+sd<c><d>]]>
+
+start new file sql
+SQL parser test:
+
+/* Multiline
+   comment */
+
+USE [CodeReview]
+
+/* Comment */ USE [CodeReview]
+GO
+
+ -- Single
+-- line
+DECLARE @test int -- comment
+
+DECLARE @test nvarchar = "Hello, world!"
+DECLARE @test nvarchar = "Hello,
+world!"
+DECLARE @test nvarchar = 'Hello, world!'
+DECLARE @test nvarchar = 'Hello,
+world!'
+DECLARE @test nvarchar = 'Hello, "world"!'
+DECLARE @test nvarchar = 'Hello,
+"world"!'
+DECLARE @Test4 datetime = GETUTCDATE()
+IF @ChangeId IS NOT NULL
+BEGIN
+    PRINT 'This is a test' /* Yes, it "is"! */
+END
+    INSERT INTO dbo.ChangeList (SourceControlId, UserName, UserClient, CL, Description, TimeStamp, Stage)
+        VALUES(@SourceControl, @UserName, @UserClient, @CL, @Description, @TimeStamp, 0)
+    SET @result = @@IDENTITY
+
+

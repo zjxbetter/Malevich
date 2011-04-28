@@ -1,0 +1,19 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title>Reminder to complete code review.</title>
+  </head>
+  <body>
+    <p>Dear {Reviewee},</p>
+    <p>Your <a href="http://{Webserver}/{WebRoot}/default.aspx?cid={MalevichId}">code review for the
+       change list {CL}</a> is now very, very old!</p>
+    <p>Chances are that the change has already been submitted and you just need to close the review:</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;review close {CL}</p>
+    <p>Or delete it if the change has been abandoned:</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;review delete {CL}</p>
+    <p>Otherwise consider reminding your reviewers about it!</p>
+    <p>&nbsp;&nbsp;--  Malevich</p>
+    <hr />
+    {Details}
+  </body>
+</html>

@@ -1,0 +1,83 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Malevich CR</title>
+    <link rel="stylesheet" href="styles/default.css" type="text/css" />
+    <link rel="stylesheet" href="styles/Gadget.css" type="text/css" />
+    
+    <!-- JQuery Support for some UI Fluff -->
+    <script language="javascript" type="text/javascript" src="script/jquery-1.3.min.js"></script>
+    <script language="javascript" type="text/javascript" src="script/jquery.marquee.js"></script>
+
+    <!-- JScript Support for the Gadget -->
+    <script language="javascript" type="text/javascript" src="script/Ui.js"></script>
+    <script language="javascript" type="text/javascript" src="script/VersionCheck.js"></script>
+    <script language="javascript" type="text/javascript" src="script/MicrosoftAjax.js"></script>
+    <script language="javascript" type="text/javascript" src="script/malevichProxy.js"></script>
+    <script language="javascript" type="text/javascript" src="script/MalevichWs.js"></script>
+    <script language="javascript" type="text/javascript" src="script/Gadget.js"></script>
+
+    <!-- GADGET SUPPORT -->
+    <script language="javascript" type="text/javascript" src="script/utils.js"></script>
+    <script language="javascript" type="text/javascript">
+        
+        //System.Gadget.settingsUI = "settings.html";
+    </script>
+    
+</head>
+<body onload="InitGadget();init();">
+
+    <div id="docked">
+            <g:background id="docked" src="../images/background2.png">
+        <div id="title"><b>MSG CR</b></div>
+        <div id="status">
+        </div>
+        
+        <div id="contentPage">
+                <center>
+                    <b>Pending Reviews</b>
+                </center>
+            <table id="reviewTable">
+                <tr>
+                    <td>
+                        Requests
+                    </td>
+                    <td id="totalRequestsPending">
+                      ?
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Responses
+                    </td>
+                    <td id="totalResponsesPending">
+                       ? 
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Active
+                    </td>
+                    <td id="totalActive">
+                        ?
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="contentDebugPage">
+            debugpage
+        </div>
+        <!-- PUT BUTTONS ABOVE EVERYTHING ELSE ON THE PAGE -->
+        <!-- Debug button: we rely on css for placement -->
+        <img id="debugButton" alt="Debug" src="../images/DebugButton.png" onclick='ToggleContentDebugPage();' name='debugButton' 
+                             onmouseover="debugButton.src='../images/DebugButton_hover.png';" 
+                             onmouseout="debugButton.src='../images/DebugButton.png';"/>
+        <!-- Refresh button: we rely on css for placement -->
+        <img id="refreshButton" alt="Refresh" src="../images/RefreshButton.png" onclick='RequestAll();' name='refreshButton' 
+                             onmouseover="refreshButton.src='../images/refreshButton_hover.png';" 
+                             onmouseout="refreshButton.src='../images/refreshButton.png';"/>
+    
+    </g:background>    
+    </div>
+    
+</body>
+</html>

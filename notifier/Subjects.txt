@@ -1,0 +1,5 @@
+﻿REQUEST: Code review for CL {CL} by {Reviewee}
+INVITE: Looking for reviewers for CL {CL} by {Reviewee}
+RESPONSE: Code review for CL {CL} by {Reviewee}
+ITERATION: Code review for CL {CL} by {Reviewee}
+REMINDER: Code review for CL {CL} by {Reviewee}

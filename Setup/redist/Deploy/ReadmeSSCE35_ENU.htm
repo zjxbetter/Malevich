@@ -1,0 +1,929 @@
+﻿<html DIR="LTR" xmlns:tool="http://www.microsoft.com/tooltip" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+  <head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=utf-8" />
+    <META NAME="save" CONTENT="history" />
+    <title>Readme for Microsoft SQL Server Compact 3.5</title>
+    
+    
+    
+    <style TYPE="text/css">
+body
+{
+background: #FFFFFF;
+color: #000000;
+font-family:    Verdana;
+font-size: medium;
+font-style: normal;
+font-weight: normal;
+margin-top: 0;
+margin-bottom:  0;
+margin-left:    0;
+margin-right:   0;
+width:  100%;
+}
+
+div.#mainSection
+{
+font-size: 70%;
+width: 100%;
+padding-left:    10;
+margin-right: 10;
+}
+
+div.#mainBody
+{
+font-size: 90%;
+margin-top: 10;
+padding-bottom: 20;
+}
+
+div.#header
+{
+background-color: #D2D2D2;
+padding-top:    0;
+padding-bottom: 0;
+padding-left:   10;
+padding-right:  0;
+width:          100%;
+}
+
+div.#header table
+{
+border-bottom-color: #C8CDDE;
+border-bottom-style: solid;
+border-bottom-width: 1;
+width:  100%;
+}
+
+span.#runningHeaderText
+{
+color: #003399;
+font-size: 90%;
+}
+
+span.#nsrTitle
+{
+/*    color: #003399;*/
+font-size: 120%;
+font-weight: 600;
+}
+
+div.#header table td
+{
+color: #000000;
+font-size: 70%;
+margin-top: 0;
+margin-bottom:  0;
+padding-right: 20;
+}
+
+div.#header table tr.#headerTableRow3 td
+{
+padding-bottom: 2;
+padding-top: 5;
+}
+
+div.#header table.#bottomTable
+{
+border-top-color: #FFFFFF;
+border-top-style: solid;
+border-top-width: 1;
+text-align: left;
+}
+
+div.#footer
+{
+font-size: 90%;
+margin-top: 0;
+margin-bottom:  0;
+margin-left:    -5;
+margin-right:   0;
+padding-top:    2;
+padding-bottom: 2;
+padding-left:   0;
+padding-right:  0;
+width:  100%;
+}
+
+hr.#footerHR
+{
+border-bottom-color: #EEEEFF;
+border-bottom-style: solid;
+border-bottom-width: 1;
+border-top-color: C8CDDE;
+border-top-style: solid;
+border-top-width: 1;
+height: 3;
+color: #D2D2D2;
+}
+
+div.section
+{
+padding-top:    2;
+padding-bottom: 2;
+padding-right:  15;
+width:  100%;
+}
+
+.heading
+{
+color:          #000000;
+font-weight:    bold;
+margin-top:     18;
+margin-bottom:  8;
+}
+
+h1.heading
+{
+color: #000000;
+font-size:  150%;
+}
+
+.subHeading
+{
+color:          #000000;
+font-weight:    bold;
+font-size:      150%;
+margin-bottom:  4;
+}
+
+h2.subHeading
+{
+color:          #000000;
+font-weight:    bold;
+font-size:      130%;
+}
+h3.subHeading
+{
+color:  #000000;
+font-size: 125%;
+font-weight: bold;
+}
+
+h4.subHeading
+{
+color: #000000;
+font-size: 110%;
+font-weight: bold;
+}
+
+h4.procedureHeading
+{
+color: #000080;
+font-size: 110%;
+font-weight: bold;
+}
+
+h5.subHeading
+{
+color: #000000;
+font-size: 100%;
+font-weight: bold;
+}
+
+img
+{
+padding-bottom: 10;
+}
+
+img.toggle
+{
+border: 0;
+margin-right: 5;
+padding-bottom: 10;
+}
+
+img.copyCodeImage
+{
+border: 0;
+margin: 1;
+margin-right: 3;
+padding-bottom: 10;
+}
+
+img.downloadCodeImage
+{
+border: 0;
+margin-right: 3;
+padding-bottom: 10;
+}
+
+img.viewCodeImage
+{
+border: 0;
+margin-right: 3;
+padding-bottom: 10;
+}
+
+img.note
+{
+border: 0;
+margin-right: 3;
+padding-bottom: 10;
+}
+
+img.#membersOptionsFilterImage
+{
+border: 0;
+margin-left: 10;
+vertical-align: middle;
+padding-bottom: 10;
+}
+
+img.#toggleAllImage
+{
+margin-left: 4;
+vertical-align: middle;
+padding-bottom: 10;
+}
+
+div.#mainSection table
+{
+border: 0;
+font-size: 100%;
+width:  100%;
+margin-top: 5px;
+margin-bottom: 15px;
+}
+
+div.#mainSection table tr
+{
+vertical-align: top;
+}
+
+div.#mainSection table th
+{
+text-align: left;
+background: #D8D8D8;
+border-bottom-color: #D8D8D8;
+border-bottom-style: solid;
+border-bottom-width: 1;
+color: #000000;
+padding-left: 5;
+padding-right: 5;
+}
+
+div.#mainSection table td
+{
+background: #F2F2F2;
+border-top-color: #D8D8D8;
+border-top-style: solid;
+border-top-width: 1;
+padding-left: 5;
+padding-right: 5;
+}
+
+div.#mainSection table td.imageCell
+{
+white-space: nowrap;
+}
+
+div.code
+{
+width: 98%;
+}
+
+div.code table
+{
+border: 0;
+font-size: 95%;
+margin-bottom: 5;
+width: 100%
+}
+
+div.code table th
+{
+text-align: left;
+background: #D8D8D8;
+border-bottom-color: #D8D8D8;
+border-bottom-style: solid;
+border-bottom-width: 1;
+color: #000000;
+font-weight: bold;
+padding-left: 5;
+padding-right: 5;
+}
+
+div.code table td
+{
+background: #CCCCCC;
+border-top-color: #D8D8D8;
+border-top-style: solid;
+border-top-width: 1;
+padding-left: 5;
+padding-right: 5;
+padding-top: 5;
+}
+
+div.alert
+{
+margin-left: 10;
+width: 98%;
+}
+
+div.alert table
+{
+border: 1;
+font-size: 100%;
+width:  100%;
+border: solid 1 #DEDFEF;
+}
+
+div.alert table th
+{
+text-align: left;
+background: #D8D8D8;
+border-bottom-width: 0;
+color: #000000;
+padding-left: 5;
+padding-right: 5;
+border: solid 1 #DEDFEF;
+}
+
+div.alert table td
+{
+background: #FFFFFF;
+border-top-color: #D8D8D8;
+border-top-style: solid;
+border-top-width: 1;
+padding-left: 5;
+padding-right: 5;
+border: solid 1 #DEDFEF;
+}
+
+span.copyCode
+{
+color: #0000ff;
+font-size: 90%;
+font-weight: normal;
+cursor: hand;
+float: right;
+display: inline;
+text-align: right;
+}
+
+.downloadCode
+{
+color: #0000ff;
+font-size: 90%;
+font-weight: normal;
+cursor: hand;
+}
+
+.viewCode
+{
+color: #0000ff;
+font-size: 90%;
+font-weight: normal;
+cursor: hand;
+}
+
+div.code pre
+{
+font-family:    Monospace, Courier New, Courier;
+font-size: 105%;
+color:  #000000;
+}
+
+code
+{
+font-family:    Monospace, Courier New, Courier;
+font-size: 105%;
+color:  #000000;
+}
+
+dl
+{
+margin-top: 0;
+padding-left:   1;
+}
+
+dd
+{
+margin-bottom:  0;
+margin-left:    0;
+padding-left:   20;
+}
+
+dd p
+{
+margin-top: 5;
+}
+
+ul
+{
+margin-left: 17;
+list-style-type: disc;
+}
+
+ul ul
+{
+margin-bottom: 4;
+margin-left: 17;
+margin-top: 3;
+list-style-type: disc;
+}
+
+ol
+{
+margin-left: 24;
+list-style-type: decimal;
+}
+
+ol ol
+{
+margin-left: 24;
+margin-top: 3;
+list-style-type: lower-alpha;
+}
+
+li
+{
+margin-top: 0;
+margin-bottom: 0;
+padding-bottom: 0;
+padding-top: 0;
+margin-left: 5;
+}
+
+p
+{
+margin-bottom: 15;
+}
+
+.tip
+{
+color:  #0000FF;
+font-style: italic;
+cursor:hand;
+text-decoration:underline;
+}
+
+.math
+{
+font-family: Times New Roman;
+font-size: 125%
+}
+.sourceCodeList
+{
+font-family: Verdana;
+font-size: 90%;
+}
+
+pre.viewCode
+{
+width: 100%;
+overflow: auto;
+}
+
+li:hover table, li.over table
+{
+background-color: #C0C0C0;
+}
+
+li:hover ul, li.over ul
+{
+background-color: #d2d2d2;
+border: 1px solid #000;
+display: block;
+}
+            </style>
+  </head>
+  <body>
+    <!--Topic built:04/23/2008 10:26:41-->
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div id="header">
+      <table width="100%" id="topTable"><tr>
+          <td align="left">
+            <span id="nsrTitle">Readme for Microsoft SQL Server Compact 3.5</span>
+          </td>
+          <td align="right">
+            <span id="headfb" class="feedbackhead">
+            </span>
+          </td>
+        </tr></table>
+      
+      
+      
+    </div>
+    <div id="mainSection">
+      <div id="mainBody"><p> 4/23/2008 10:26:41 AM</p>
+        
+        <font color="DarkGray"> </font><p /> 
+        <span id="changeHistory">
+        </span>
+    <p>The most up-to-date version of this file is available online at the <a href="http://go.microsoft.com/fwlink/?LinkId=79942" alt=""><linkText xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">Microsoft Download Center</linkText></a>.</p>
+    <table width="100%" cellspacing="0" cellpadding="0" border="1" style="background-color: #CCCCCC;"><tr>
+        <td>
+          <p>The SQL Server documentation team welcomes your <a href="mailto:sqldocfb@microsoft.com?subject=SQL%20Server%20Compact%203.5%20readme%20file(\1:SQL\2:3.5.5386.0\3:SSC_RTW\4:readme_ssc\5:ReadmeSSC35.htm\6:\7:h\8:en-us\9:2007)&amp;body=---Please%20type%20comments%20here,%20leaving%20the%20subject%20line%20in%20place.---" alt=""><linkText xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">documentation feedback</linkText></a>. We view and investigate all documentation issues but do not answer technical support questions here. For help with technical issues not related to documentation, see <a href="http://go.microsoft.com/fwlink/?LinkId=77373" alt=""><linkText xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">Getting Assistance with SQL Server Compact </linkText></a>. If it is possible, submit feedback to us in English.</p>
+        </td>
+      </tr></table>
+  <a name="_contents_ar5q" /><h1 class="heading">Contents</h1><div id="sectionSection0" class="section"><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+      <p xmlns="">
+        <a href="#_1460_introduction_d3jb">1.0 Introduction</a>
+      </p>
+      <p xmlns="">    <a href="#devtools">1.1 Obtaining SQL Server Compact 3.5 SP1</a></p>
+      <p xmlns="">    <a href="#_1462_additional_information_about_sql_mo_ar5q">1.2 SQL Server Compact 3.5 Books Online</a></p>
+      <p xmlns="">    <a href="#adonet">1.3 Microsoft Synchronization Services for ADO.NET</a></p>
+      <p xmlns="">
+        <a href="#_supported_platforms_2y0t">2.0 Supported Operating Systems and Platforms for SQL Server Compact 3.5 </a>
+      </p>
+      <p xmlns="">
+        <a href="#knownissues">3.0 Known Issues</a>
+      </p>
+      <p xmlns="">
+        <a href="#_4460_documentation_notes_2y0t">4.0 Additional Information</a>
+      </p>
+      <p xmlns="">    <a href="#gettingassistance">4.1 Getting SQL Server Compact 3.5 Assistance</a></p>
+      <p xmlns="">    <a href="#provfeedback">4.2 Providing Feedback on SQL Server Compact 3.5</a></p>
+      <p xmlns="">
+        <a href="#_contents_ar5q">[Top]</a>
+      </p>
+    </content></div><a name="_1460_introduction_d3jb" /><h1 class="heading">1.0 Introduction</h1><div id="sectionSection1" class="section"><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+      <p xmlns="">
+        Microsoft® SQL Server™ Compact 3.5 Service Pack 1 (SP1) is the service pack release for SQL Server Compact 3.5. SQL Server Compact 3.5 SP1 is a small footprint, in-process database engine that allows developers to build robust applications for Windows desktops and mobile devices.</p>
+    </content><sections xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+      <a name="devtools" xmlns="" /><h3 class="subHeading" xmlns="">1.1 Obtaining SQL Server Compact 3.5 SP1</h3><div class="subSection" xmlns=""><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+          <p xmlns="">
+            SQL Server Compact 3.5 SP1 installs with SQL Server 2008 and Visual Studio 2008 SP1, and is also available from the Web downloads listed below:</p>
+          <ul xmlns=""><li>
+              
+                Visual Studio 2008 SP1 is available at the <a href="http://go.microsoft.com/fwlink/?LinkId=116496" alt=""><linkText xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">Microsoft Download Center</linkText></a>.<br />
+            </li><li>
+              
+                SQL Server 2008 is available at the <a href="http://go.microsoft.com/fwlink/?LinkId=116495" alt=""><linkText xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">Microsoft Download Center</linkText></a>.<br />
+            </li><li>
+              
+                SQL Server Compact 3.5 SP1 is available at the <a href="http://go.microsoft.com/fwlink/?LinkId=82748" alt=""><linkText xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">Microsoft Download Center</linkText></a>.<br />
+            </li><li>
+              
+                SQL Server Compact 3.5 SP1 for Devices is available at the <a href="http://go.microsoft.com/fwlink/?LinkId=82748" alt=""><linkText xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">Microsoft Download Center</linkText></a>. SQL Server Compact 3.5 SP1 for Devices Windows installer file (msi) that contains the device runtime .cab files is not installed with Visual Studio 2008 SP1.<br />
+            </li><li>
+              
+                SQL Server Compact 3.5 SP1 Server Tools is available for download from the <a href="http://go.microsoft.com/fwlink/?LinkId=82748" alt=""><linkText xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">Microsoft Download Center</linkText></a>.<br />
+            </li><li>
+              The 64-bit release of SQL Server Compact 3.5 SP1 is available as a Web download only at the <a href="http://go.microsoft.com/fwlink/?LinkId=82748" alt=""><linkText xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">Microsoft Download Center</linkText></a>.<br />
+            </li></ul>
+        </content></div>
+      <a name="_1462_additional_information_about_sql_mo_ar5q" xmlns="" /><h3 class="subHeading" xmlns="">1.2 SQL Server Compact 3.5 SP1 Books Online</h3><div class="subSection" xmlns=""><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+          <p xmlns="">
+            SQL Server Compact 3.5 SP1 Books Online provides detailed information about the development, administration, and deployment of SQL Server Compact 3.5 SP1 on Windows desktop computers, and on Windows Mobile devices. SQL Server Compact 3.5 SP1 Books Online does not install with Visual Studio 2008 SP1 Books Online or SQL Server 2008 Books Online and is only available as a Web download from the <a href="http://go.microsoft.com/fwlink/?LinkId=82748" alt=""><linkText xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">Microsoft Download Center</linkText></a>. </p>
+          <p xmlns="">After you install SQL Server Compact Books Online, it is available on the <b>Start</b> menu as a stand-alone Help collection. To access this collection from the Visual Studio 2008 SP1 or SQL Server 2008 documentation and to access F1 Help from Visual Studio 2008 SP1 or SQL Server 2008, you must add the collection to the Visual Studio Combined Help Collection. For instructions on adding the collection, see the Known Issues section.</p>
+        </content></div>
+      <a name="adonet" xmlns="" /><h3 class="subHeading" xmlns="">1.3 Microsoft Synchronization Services for ADO.NET</h3><div class="subSection" xmlns=""><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+          <p xmlns="">
+            Microsoft Synchronization Services for ADO.NET provides the ability to synchronize data from disparate sources over two-tier, <i>n</i>-tier, and service-based architectures.</p>
+          <p xmlns="">To learn more about this technology, see the product documentation available online at the <a href="http://go.microsoft.com/fwlink/?LinkId=80742" alt=""><linkText xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">Microsoft Download Center</linkText></a>. The Synchronization Services components are available with SQL Server Compact 3.5 SP1 at the <a href="http://go.microsoft.com/fwlink/?LinkId=78166" alt=""><linkText xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">Microsoft Download Center</linkText></a>.</p>
+          <p xmlns="">
+            <a href="#_contents_ar5q"> [Top]</a>
+          </p>
+        </content></div>
+    </sections></div><a name="_supported_platforms_2y0t" /><h1 class="heading">2.0 Supported Operating Systems and Platforms for SQL Server Compact 3.5 SP1</h1><div id="sectionSection2" class="section"><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+      <p xmlns="">This release of SQL Server Compact 3.5 SP1 supports the following operating systems.</p>
+    </content><sections xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+      <div class="subSection" xmlns=""><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+        </content><sections xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+          <h4 class="subHeading" xmlns="">Windows Desktop Computers</h4><div class="subSection" xmlns=""><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+              <ul xmlns=""><li>
+                  
+                    Microsoft Windows XP Professional SP3<br />
+                </li><li>
+                  
+                    Microsoft Windows XP Home Edition SP3<br />
+                </li><li>
+                  
+                    Microsoft Windows XP Media Center Edition 2004 SP3<br />
+                </li><li>
+                  
+                    Microsoft Windows XP Media Center Edition 2005<br />
+                </li><li>
+                  
+                    Microsoft Windows XP Tablet PC Edition SP3<br />
+                </li><li>
+                  
+                    Microsoft Windows XP Embedded SP3<br />
+                </li><li>
+                  
+                    Microsoft Windows XP Professional x64 SP3<br />
+                </li><li>
+                  Windows Embedded for Point of Service SP3<br />
+                </li><li>
+                  
+                    Microsoft Windows Server 2003, Standard Edition SP2<br />
+                </li><li>
+                  
+                    Microsoft Windows Server 2003, Enterprise Edition SP2<br />
+                </li><li>
+                  
+                    Microsoft Windows Server 2003, Datacenter Edition SP2<br />
+                </li><li>
+                  
+                    Microsoft Windows Server 2003 R2, Standard Edition<br />
+                </li><li>
+                  
+                    Microsoft Windows Server 2003 R2, Enterprise Edition<br />
+                </li><li>
+                  
+                    Microsoft Windows Server 2003 R2, Datacenter Edition<br />
+                </li><li>
+                  
+                    Microsoft Windows Server 2003 x64, Standard Edition<br />
+                </li><li>
+                  
+                    Microsoft Windows Server 2003 x64, Enterprise x64 Edition<br />
+                </li><li>
+                  
+                    Microsoft Windows Server 2003 x64, Datacenter Edition<br />
+                </li><li>
+                  
+                    Microsoft Windows Server 2003 R2 x64, Standard Edition<br />
+                </li><li>
+                  
+                    Microsoft Windows Server 2003 R2 x64, Enterprise Edition<br />
+                </li><li>
+                  
+                    Microsoft Windows Server 2003 R2 x64, Datacenter Edition<br />
+                </li><li>
+                  
+                    Windows Vista Home Basic SP1<br />
+                </li><li>
+                  
+                    Windows Vista Home Premium SP1<br />
+                </li><li>
+                  
+                    Windows Vista Business SP1<br />
+                </li><li>
+                  
+                    Windows Vista Enterprise SP1<br />
+                </li><li>
+                  
+                    Windows Vista Ultimate SP1<br />
+                </li><li>
+                  
+                    Windows Vista Starter Edition SP1<br />
+                </li><li>
+                  
+                    Windows Vista Home Basic x64 SP1<br />
+                </li><li>
+                  
+                    Windows Vista Home Premium x64 SP1<br />
+                </li><li>
+                  
+                    Windows Vista Business x64 SP1<br />
+                </li><li>
+                  
+                    Windows Vista Enterprise x64 SP1<br />
+                </li><li>
+                  
+                    Windows Vista Ultimate x64 SP1<br />
+                </li><li>
+                  
+                    Windows Server 2008 Standard Server<br />
+                </li><li>
+                  
+                    Windows Server 2008 Standard Server (without Hyper-V)<br />
+                </li><li>
+                  
+                    Windows Server 2008 Enterprise<br />
+                </li><li>
+                  
+                    Windows Server 2008 Enterprise (without Hyper-V)<br />
+                </li><li>
+                  
+                    Windows Server 2008 Data Center<br />
+                </li><li>
+                  
+                    Windows Server 2008 Data Center (without Hyper-V)<br />
+                </li><li>
+                  
+                    Windows Server 2008 Web Edition<br />
+                </li><li>
+                  
+                    Windows Server 2008 Standard Server x64<br />
+                </li><li>
+                  
+                    Windows Server 2008 Standard Server x64 (without Hyper-V)<br />
+                </li><li>
+                  
+                    Windows Server 2008 Enterprise x64<br />
+                </li><li>
+                  
+                    Windows Server 2008 Enterprise x64 (without Hyper-V)<br />
+                </li><li>
+                  
+                    Windows Server 2008 Data Center x64<br />
+                </li><li>
+                  
+                    Windows Server 2008 Data Center x64 (without Hyper-V)<br />
+                </li><li>
+                  
+                    Windows Server 2008 Web Edition x64<br />
+                </li></ul>
+            </content></div>
+          <h4 class="subHeading" xmlns="">Windows Mobile Devices</h4><div class="subSection" xmlns=""><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+              <ul xmlns=""><li>
+                  Windows CE 4.2<br />
+                </li><li>
+                  Windows CE 5.0<br />
+                </li><li>
+                  Windows CE 6.0<br />
+                </li><li>
+                  
+                    Windows Mobile 2003 for Pocket PC
+                  <br />
+                </li><li>
+                  
+                    Windows Mobile 5.0<br />
+                </li><li>
+                  
+                    Windows Mobile 6.0<br />
+                </li></ul>
+              <p xmlns="">
+                <a href="#_contents_ar5q">[Top]</a>
+              </p>
+              <p xmlns=""> </p>
+            </content></div>
+        </sections></div>
+    </sections></div><a name="knownissues" /><h1 class="heading">3.0 Known Issues</h1><div id="sectionSection3" class="section"><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+      <ol xmlns=""><li>
+          
+            SQL Server Compact 3.5 SP1 Books Online (BOL) and Microsoft Synchronization Services for ADO.NET are available as a Web download only from the <a href="http://go.microsoft.com/fwlink/?LinkId=82748" alt=""><linkText xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">Microsoft Download Center</linkText></a> and do not ship with Visual Studio 2008 SP1 or SQL Server 2008. To access these collections from the Visual Studio 2008 SP1 or SQL Server 2008 documentation and to access F1 Help from Visual Studio 2008 SP1 or SQL Server 2008, you must add these collections to the Visual Studio and SQL Server Combined Help Collection. To do that, download SQL Server Compact 3.5 SP1 Books Online and Microsoft Synchronization Services for ADO.NET. After downloading and installing the SQL Server Compact 3.5 SP1 Books Online and Microsoft Synchronization Services for ADO.NET Books Online, close all instances of the Visual Studio/SQL Server Combined Help Collection and Visual Studio 2008/SQL Server 2008. When you re-open the Combined Help Collection, SQL Server Compact 3.5 SP1 Books Online and Microsoft Synchronization Services for ADO.NET Books Online become available in the applications' table of contents, index, search, and F1 Help for code and the user interface.<br />
+          
+          <br />
+        </li><li>
+          
+            SQL Server Compact 3.5 SP1 for Devices Windows installer file does not install with Visual Studio 2008 SP1. The file is available as a Web download only from the <a href="http://go.microsoft.com/fwlink/?LinkId=82748" alt=""><linkText xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">Microsoft Download Center</linkText></a>.<br />
+          
+          <br />
+        </li><li>
+          Upgrading to SQL Server Compact 3.5 or SQL Server Compact 3.5 SP1 from SQL Server Compact 3.5 CTP or SQL Server Compact 3.5 beta versions is not supported. Upgrading from SQL Server Compact 3.5 or SQL Server Compact 3.5 SP1 beta to SQL Server Compact 3.5 SP1 is supported.<br />
+          
+          <br />
+          Upgrading from the community technology preview (CTP) and beta versions of SQL Server Compact 3.5 to the release version is not supported. Uninstalling the CTP or beta version of Visual Studio 2008 does not uninstall SQL Server Compact 3.5. You must remove the CTP or beta installations of SQL Server Compact 3.5 manually before you install the release version of Visual Studio 2008, as follows:<br />
+          <ol><li>
+              Uninstall the CTP or beta version of Visual Studio 2008.<br />
+            </li><li>
+              On Windows Vista, click <b>Start</b>, then <b>Control Panel,</b> and then double-click <b>Programs and Features</b>. Uninstall all CTP and beta installations of SQL Server Compact 3.5, SQL Server Compact 3.5 for Devices and SQL Server Compact 3.5 Design Tools.<br />
+            </li><li>
+              On Windows XP or Windows Server 2003, click <b>Start</b>, then <b>Control Panel</b>, and then double-click <b>Add or Remove Programs</b>. Uninstall all CTP and beta installations of SQL Server Compact 3.5, SQL Server Compact 3.5 for Devices, and SQL Server Compact 3.5 Design Tools.<br />
+            </li></ol>
+          
+          <br />
+        </li><li>
+          
+            SQL Server Compact 3.5 SP1 does not use the <b>Encrypt</b> property of the SqlCeConnection class. <br />
+          
+          <br />
+          The <b>Encrypt</b> property of the SqlCeConnection class should not be used. <br />
+          <div class="alert"><table width="100%" cellspacing="0" cellpadding="0"><tr><th align="left">Note: </th></tr><tr><td>
+            Encrypt property will be deprecated in a future release. The property is retained in SQL Server Compact 3.5 SP1 only for backward compatibility.<p />
+          </td></tr></table><p /></div>
+          Use the <b>Encryption Mode</b> property of the SqlCeConnection class to encrypt SQL Server Compact 3.5 SP1 database files. Uses of <b>encryption mode</b> with examples are given below:<br />
+          
+          <br />
+          <ol><li>
+              To create a new encrypted SQL Server Compact 3.5 SP1 database:<br />
+              C#:<br />
+              <div class="code"><span codeLanguage="other"><table width="100%" cellspacing="0" cellpadding="0"><tr><th align="left" /></tr><tr><td colspan="2"><pre>SqlCeEngine engine = new SqlCeEngine("Data Source=Northwind.sdf;encryption mode=platform default;Password=&lt;enterStrongPasswordHere&gt;;");
+engine.CreateDatabase();</pre></td></tr></table></span></div>
+              Visual Basic:<br />
+              <div class="code"><span codeLanguage="other"><table width="100%" cellspacing="0" cellpadding="0"><tr><th align="left" /></tr><tr><td colspan="2"><pre>Dim engine As SqlCeEngine = New SqlCeEngine("Data Source=Northwind.sdf;encryption mode=platform default;Password=&lt;enterStrongPasswordHere&gt;;")
+engine.CreateDatabase()</pre></td></tr></table></span></div>
+            </li><li>
+              To upgrade a SQL Server 2005 Compact Edition (version 3.1) or SQL Server 2005 Mobile Edition (version 3.0) database to an encrypted SQL Server Compact 3.5 SP1 database:<br />
+              C#:<br />
+              <div class="code"><span codeLanguage="other"><table width="100%" cellspacing="0" cellpadding="0"><tr><th align="left" /></tr><tr><td colspan="2"><pre>SqlCeEngine engine = new SqlCeEngine("Data Source=Northwind.sdf;Password=&lt;enterStrongPasswordHere&gt;;");
+engine.Upgrade ("Data Source=Northwind.sdf;encryption mode=platform default;Password=&lt;enterStrongPasswordHere&gt;;");</pre></td></tr></table></span></div>
+              Visual Basic:<br />
+              <div class="code"><span codeLanguage="other"><table width="100%" cellspacing="0" cellpadding="0"><tr><th align="left" /></tr><tr><td colspan="2"><pre>Dim engine As SqlCeEngine = New SqlCeEngine("Data Source=Northwind.sdf;Password=&lt;enterStrongPasswordHere&gt;;")
+engine.Upgrade("Data Source=Northwind.sdf;encryption mode=platform default;Password=&lt;enterStrongPasswordHere&gt;;")</pre></td></tr></table></span></div>
+            </li><li>
+              To change the encryption mode of an existing SQL Server Compact 3.5 SP1 database:<br />
+              C#:<br />
+              <div class="code"><span codeLanguage="other"><table width="100%" cellspacing="0" cellpadding="0"><tr><th align="left" /></tr><tr><td colspan="2"><pre>SqlCeEngine engine = new SqlCeEngine("Data Source=Northwind.sdf;Password=&lt;enterStrongPasswordHere&gt;;");
+engine.Compact("Data Source=Northwind.sdf;encryption mode=ppc2003 compatibility;Password=&lt;enterStrongPasswordHere&gt;;");</pre></td></tr></table></span></div>
+              Visual Basic:<br />
+              <div class="code"><span codeLanguage="other"><table width="100%" cellspacing="0" cellpadding="0"><tr><th align="left" /></tr><tr><td colspan="2"><pre>Dim engine As SqlCeEngine = New SqlCeEngine("Data Source=Northwind.sdf;Password=&lt;enterStrongPasswordHere&gt;;") 
+engine.Compact("Data Source=Northwind.sdf;encryption mode=ppc2003 compatibility;Password=&lt;enterStrongPasswordHere&gt;;")</pre></td></tr></table></span></div>
+            </li><li>
+              To encrypt an unencrypted SQL Server Compact 3.5 SP1 database:<br />
+              C#:<br />
+              <div class="code"><span codeLanguage="other"><table width="100%" cellspacing="0" cellpadding="0"><tr><th align="left" /></tr><tr><td colspan="2"><pre>SqlCeEngine engine = new SqlCeEngine("Data Source=Northwind.sdf");
+engine.Compact("Data Source=Northwind.sdf;encryption mode=platform default;Password=&lt;enterStrongPasswordHere&gt;;");</pre></td></tr></table></span></div>
+              Visual Basic:<br />
+              <div class="code"><span codeLanguage="other"><table width="100%" cellspacing="0" cellpadding="0"><tr><th align="left" /></tr><tr><td colspan="2"><pre>Dim engine As SqlCeEngine = New SqlCeEngine("Data Source=Northwind.sdf;") 
+engine.Compact("Data Source=Northwind.sdf;encryption mode=platform default;Password=&lt;enterStrongPasswordHere&gt;;")
+</pre></td></tr></table></span></div>
+            </li></ol>
+        </li><li>
+          While upgrading Visual Studio 2005 to Visual Studio 2008, encrypted SQL Server Compact database is not upgraded and ClickOnce applications must be re-published. <br />
+          
+          <br />
+          Database files (*.sdf) created by earlier versions of SQL Server Compact are not compatible with SQL Server Compact 3.5 SP1. Only unencrypted database files from earlier versions of SQL Server Compact are upgraded when a Visual Studio 2005 project is upgraded to Visual Studio 2008. Encrypted database files have to be manually upgraded. If the Visual Studio 2005 project uses ClickOnce to publish applications, the application should be re-published after the project has been upgraded in Visual Studio 2008.<br />
+          
+          <br />
+          The encrypted database files can be manually upgraded by using the following steps: <br />
+          <ol><li>
+              Click <b>Data</b>.<br />
+            </li><li>
+              Click <b>Add New Data Source</b>.<br />
+            </li><li>
+              Click <b>Add Connection</b>. <br />
+              If an earlier version of the database file is opened, a message appears. If you click <b>OK</b>, the <b>Upgrade to SQL Server Compact 3.5</b> <b>Database</b> dialog box appears.<br />
+              Alternatively the SqlCeEngine.Upgrade API can be used for programmatic scenarios. Code sample is shown below:<br />
+              C#:<br />
+              <div class="code"><span codeLanguage="other"><table width="100%" cellspacing="0" cellpadding="0"><tr><th align="left" /></tr><tr><td colspan="2"><pre>SqlCeEngine engine = new SqlCeEngine("Data Source=Northwind.sdf;Password=&lt;enterStrongPasswordHere&gt;;");
+engine.Upgrade ("Data Source=Northwind.sdf;encryption mode=platform default;Password=&lt;enterStrongPasswordHere&gt;;");</pre></td></tr></table></span></div>
+              Visual Basic:<br />
+              <div class="code"><span codeLanguage="other"><table width="100%" cellspacing="0" cellpadding="0"><tr><th align="left" /></tr><tr><td colspan="2"><pre>Dim engine As SqlCeEngine = New SqlCeEngine("Data Source=Northwind.sdf;Password=&lt;enterStrongPasswordHere&gt;;")
+engine.Upgrade("Data Source=Northwind.sdf;encryption mode=platform default;Password=&lt;enterStrongPasswordHere&gt;;")</pre></td></tr></table></span></div>
+            </li></ol>
+          If the project uses ClickOnce to publish applications, the application should be re-published after it has been upgraded in Visual Studio 2008. When you re-publish the ClickOnce application in Visual Studio 2008, you might see a warning that SQL Server 2005 Compact Edition prerequisite could not be found for bootstrapping. The warning should be ignored. <br />
+          
+          <br />
+        </li><li>
+          
+            SQL Server Compact 3.5 SP1 data types for parameters like <i>SqlDbType</i> or <i>DbType</i> should be explicitly set.<br />
+          
+          <br />
+          If the data types for parameters such as <i>SqlDbType</i> or <i>DbType</i> are not explicitly set, an exception will be thrown. To resolve this issue, explicitly set the data type for parameters such as <i>SqlDbType</i> or <i>DbType</i>. This is critical in case of BLOB data types (image and ntext). A code example is given below:<br />
+          C#:<br />
+          <div class="code"><span codeLanguage="other"><table width="100%" cellspacing="0" cellpadding="0"><tr><th align="left" /></tr><tr><td colspan="2"><pre>SqlCeEngine engine = new SqlCeEngine(connString);
+engine.CreateDatabase();
+engine.Dispose();
+
+SqlCeConnection conn = new SqlCeConnection(connString);
+conn.Open();
+
+SqlCeCommand cmd = conn.CreateCommand();
+cmd.CommandText = "CREATE TABLE BlobTable(name nvarchar(128), blob ntext);";
+cmd.ExecuteNonQuery();
+
+cmd.CommandText = "INSERT INTO BlobTable(name, blob) VALUES (@name, @blob);";
+SqlCeParameter paramName = cmd.Parameters.Add("name", SqlDbType.NVarChar, 128);
+SqlCeParameter paramBlob = cmd.Parameters.Add("blob", SqlDbType.NText);
+paramName.Value = "Name1";
+paramBlob.Value = "Name1".PadLeft(4001);
+
+cmd.ExecuteNonQuery();</pre></td></tr></table></span></div>
+          Visual Basic:<br />
+          <div class="code"><span codeLanguage="other"><table width="100%" cellspacing="0" cellpadding="0"><tr><th align="left" /></tr><tr><td colspan="2"><pre>Dim engine As SqlCeEngine = New SqlCeEngine(connString)
+engine.CreateDatabase()
+engine.Dispose()
+
+Dim conn As SqlCeConnection = New SqlCeConnection(connString)
+conn.Open()
+
+Dim cmd As SqlCeCommand = conn.CreateCommand()
+cmd.CommandText = "CREATE TABLE BlobTable(name nvarchar(128), blob ntext);"
+cmd.ExecuteNonQuery() 
+
+cmd.CommandText = "INSERT INTO BlobTable(name, blob) VALUES (@name, @blob);"
+Dim paramName As SqlCeParameter
+Dim paramBlob As SqlCeParameter
+paramName = cmd.Parameters.Add("name", SqlDbType.NVarChar, 128)
+paramBlob = cmd.Parameters.Add("blob", SqlDbType.NText)
+paramName.Value = "Name1"
+paramBlob.Value = "Name1".PadLeft(4001)
+
+cmd.ExecuteNonQuery()
+</pre></td></tr></table></span></div>
+        </li></ol>
+      <p xmlns="">
+      </p>
+    </content></div><a name="_4460_documentation_notes_2y0t" /><h1 class="heading">4.0 Additional Information</h1><div id="sectionSection4" class="section"><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+      <p xmlns="">This section describes how to obtain assistance and provide feedback about SQL Server Compact.</p>
+    </content><sections xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+      <a name="gettingassistance" xmlns="" /><h3 class="subHeading" xmlns="">4.1 Getting SQL Server Compact Assistance</h3><div class="subSection" xmlns=""><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+          <p xmlns="">For more information, see the <a href="http://go.microsoft.com/fwlink/?LinkId=66523" alt=""><linkText xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">SQL Server Compact</linkText></a> Forum and the <a href="http://go.microsoft.com/fwlink/?LinkId=67575" alt=""><linkText xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">SQL Server Compact 3.5 Team Blog</linkText></a>. </p>
+        </content></div>
+      <a name="provfeedback" xmlns="" /><h3 class="subHeading" xmlns="">4.2 Providing Feedback on SQL Server Compact</h3><div class="subSection" xmlns=""><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+          <p xmlns="">To provide suggestions and bug reports about SQL Server Compact:</p>
+          <ul xmlns=""><li>
+              Make suggestions and file bug reports about the features or the user interface of SQL Server Compact at the <a href="http://go.microsoft.com/fwlink/?LinkId=51684" alt=""><linkText xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">MSDN product feedback Web site</linkText></a>.<br />
+            </li><li>
+              Send suggestions or report inaccuracies in the documentation by using the feedback functionality in SQL Server Compact Books Online.<br />
+            </li></ul>
+          <p xmlns="">
+            <a href="#_contents_ar5q">[Top]</a>
+          </p>
+        </content></div>
+    </sections></div><!--[if gte IE 5]>
+			<tool:tip element="seeAlsoToolTip" avoidmouse="false"/><tool:tip element="languageFilterToolTip" avoidmouse="false"/><tool:tip element="roleInfoSpan" avoidmouse="false"/>
+		<![endif]--></div>
+      <div id="footer">
+			
+			© 2008 Microsoft Corporation. All rights reserved.
+		</div>
+    </div>
+  </body>
+</html>

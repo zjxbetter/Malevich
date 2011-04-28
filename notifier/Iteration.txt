@@ -1,0 +1,13 @@
+﻿Dear {Reviewee},
+
+Thank you for giving me the opportunity to review your code.
+
+{Verdict}
+
+Please see the detailed comments at http://{Webserver}/{WebRoot}/default.aspx?cid={MalevichId}
+
+  --  {Reviewer}
+
+---------
+
+{Details}

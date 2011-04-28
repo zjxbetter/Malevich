@@ -1,0 +1,709 @@
+﻿/*-----------------------------------------------------------------------
+ * <copyright>
+ * Copyright (C) Sergey Solyanik for The Malevich Project.
+ *
+ * This file is subject to the terms and conditions of the Microsoft Public License (MS-PL).
+ * See http://www.microsoft.com/opensource/licenses.mspx#Ms-PL for more details.
+ * </copyright>
+ *-----------------------------------------------------------------------*/
+
+/*******************************************************************/
+/* Root styles */
+html
+{
+    overflow: auto;
+    overflow-y: scroll;
+}
+
+body
+{
+    /*font-family: Verdana,Arial,sans-serif;*/
+    font-size: medium;
+    font-family: sans-serif;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+form
+{
+    height: 100%;
+}
+
+#RootDivElement
+{
+    margin: auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    width: 1024px;
+    background-color: White;
+}
+
+div.CssLineWidthMeasure
+{
+    position: absolute;
+    visibility: hidden;
+    height: auto;
+    width: auto;
+}
+
+fieldset
+{
+    margin: 1em;
+    padding: 1em;
+    text-align: left;
+}
+
+fieldset legend
+{
+    display:inline-block;
+    width: auto;
+    margin-bottom: 1em;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+/*******************************************************************/
+/* Header styles */
+table.CssPageHeader
+{
+    vertical-align: middle;
+    border-bottom: solid 1px black;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: .5em;
+    border-collapse: collapse;
+}
+
+table.CssPageHeader tr td.CssPageTitle
+{
+    font-size: x-large;
+    font-weight: bold;
+}
+
+table.CssPageHeader tr td.CssNavBarHoriz
+{
+    text-align: right;
+    padding-top: .5em;
+    padding-bottom: .5em;
+}
+
+/*******************************************************************/
+/* Settings styles */
+div.CssSettingsPage table
+{
+    text-align: center;
+}
+
+div.CssSettingsPage table
+{
+    display: inline-block;
+    text-align: left;
+}
+
+div.CssSettingsPage table tr td
+{
+}
+
+div.CssSettingsPage table tr td.CssMargin
+{
+}
+
+div.CssSettingsPage table tr td.CssData
+{
+    padding-left: 75px;
+}
+
+div.CssSettingsPage table tr td.CssHeader
+{
+    display: inline-block;
+    padding-top: 20px;
+    font-weight: bold;
+    vertical-align: top;
+    width: 100%;
+}
+
+div.CssSettingsPage .Settings fieldset
+{
+}
+
+div.CssSettingsPage .Settings fieldset legend
+{
+    display: block;
+}
+
+/*******************************************************************/
+/* Base diff viewer styles */
+div.CssFileViewNavBar
+{
+    text-align: center;
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 100%;
+}
+
+div.CssButtonBar .button
+{
+    margin-right: .5em;
+}
+
+table tr td
+{
+}
+
+table.CssFileView
+{
+    margin: auto;
+    border: solid 1px black;
+    border-collapse: collapse;
+}
+
+table.CssFileView tr td
+{
+    padding: 1px;
+    vertical-align: top;
+}
+
+table.CssFileView tr td.Num
+{
+    text-align: right;
+    padding-right: 1em;
+    padding-left: 1em;
+}
+
+table.CssFileView tr td.Txt
+{
+    text-align: left;
+    overflow: hidden;
+}
+
+table.CssFileView tr td.Txt pre
+{
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+    /* Additional settings in browser-specific files */
+}
+
+table.CssFileView tr.Header
+{
+    background-color: ButtonFace;
+}
+
+table.CssFileView tr.Header td
+{
+    border-bottom: solid 1px black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+div.CssOuterDiv
+{
+    text-align: center;
+    margin-top: 1em;
+}
+
+div.CssFileVersions
+{
+    display: inline;
+    margin: auto;
+}
+
+div.CssFileVersions fieldset
+{
+    margin: auto;
+    display: inline;
+    clear: both;
+    text-align: left;
+    min-width: 500px;
+    min-height: 1em;
+}
+
+div.CssFileVersions fieldset table
+{
+    text-align: left;
+    float: left;
+}
+
+div.CssFileVersions div.ButtonPanel
+{
+    text-align: center;
+    margin: auto;
+    clear: both;
+}
+
+table.CssFileView pre.Code ins
+{
+    text-decoration: none;
+}
+
+table.CssFileView pre.Code del
+{
+    text-decoration: none;
+}
+
+/*******************************************************************/
+/* Single file view */
+
+table.CssFileViewSingle
+{
+	table-layout: fixed;
+	width: 95%;
+}
+
+table.CssFileViewSingle tr.Header td
+{
+    text-align: center;
+}
+
+/*******************************************************************/
+/* Split (side-by-side) view */
+
+table.CssFileViewSplit
+{
+}
+
+table.CssFileViewSplit tr td.Base pre.Code del
+{
+    /*background-color: #ff8888;*/
+    background-color: #e8e0e0;
+	color: red;
+	font-weight: bold;
+    /*border: solid 2px red;*/
+    /*display: inline-block;*/
+}
+
+table.CssFileViewSplit tr td.Diff pre.Code ins
+{
+    /*background-color: #eeffee;*/
+    background-color: #e0e8e0;
+	color: green;
+	font-weight: bold;
+    /*border: solid 2px green;*/
+    /*display: inline-block;*/
+}
+
+table.CssFileViewSplit tr td.Txt pre.Code ins,
+table.CssFileViewSplit tr td.Txt pre.Code del
+{
+}
+
+/* Changed lines are displayed in blue with light grey background. */
+table.CssFileViewSplit tbody.Changed,
+table.CssFileViewSplit tbody.Added,
+table.CssFileViewSplit tbody.Deleted
+{
+    /*background-color: #dfdfdf;*/
+    background-color: #f0f0f0;
+}
+
+table.CssFileViewSplit tbody.Changed
+{
+    color: Blue;
+}
+
+/* Added lines are displayed in green with light grey background. */
+table.CssFileViewSplit tbody.Added
+{
+    color: Green;
+}
+
+/* Added lines are displayed in red with light grey background. */
+table.CssFileViewSplit tbody.Deleted
+{
+    color: Red;
+}
+
+/* Add file divider */
+table.CssFileViewSplit tr td.Col2
+{
+    border-left: solid 1px black;
+}
+
+/*******************************************************************/
+/* Unified (windiff-style) view */
+
+table.CssFileViewUnified
+{
+}
+
+table.CssFileViewUnified tr.Header a
+{
+    display: block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+/* Deleted or changed base lines appear in red. */
+table.CssFileViewUnified tbody.Deleted tr      td,
+table.CssFileViewUnified tbody.Changed tr.Base td
+{
+    background-color: #ff0000;
+}
+
+/* Changed or added diff lines appear in yellow */
+table.CssFileViewUnified tbody.Changed tr.Diff td,
+table.CssFileViewUnified tbody.Added   tr      td
+{
+    background-color: yellow;
+}
+
+/*******************************************************************/
+/* Ommitted (skipped) lines notification bar */
+
+div.Table.CssFileView div.Row.CssOmittedLinesNotice,
+table.CssFileView tr.CssOmittedLinesNotice
+{
+}
+
+div.Table.CssFileView div.Row.CssOmittedLinesNotice span.Cell,
+table.CssFileView tr.CssOmittedLinesNotice td
+{
+    background-color: #ccd5ff;
+    border-top: solid 1px Black;
+    border-bottom: solid 1px Black;
+    border-left: none;
+    border-right: none;
+    padding: 10px 0px 10px 0px;
+    text-align: center;
+}
+
+/*******************************************************************/
+/* Comments */
+
+table.CssFileView div.Comment
+{
+    width: 95%;
+    color: Black;
+    padding: 10px;
+    margin: auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    border: 1px solid black;
+    background-color: #ccc;
+}
+
+table.CssFileView tr td div.Comment * div
+{
+    /* Additional settings in browser-specific files */
+}
+
+/* Cannot use margin to give proper spacing in div.Comment above
+   so must user padding on Display and Edit DIVs. */
+table.CssFileView tr td div.Comment div.Display,
+table.CssFileView tr td div.Comment div.Edit
+{
+}
+
+table.CssFileView tr td div.Comment div.Display
+{
+}
+
+table.CssFileView tr td div.Comment div.Display div.Header
+{
+    font-weight: bold;
+}
+
+table.CssFileView tr td div.Comment div.Display div.Body
+{
+    margin-left: 20px;
+}
+
+table.CssFileView tr td div.Comment div.Edit
+{
+}
+
+table.CssFileView tr td div.Comment div.Edit textarea
+{
+    width: 100%;
+    overflow: hidden;
+}
+
+table.CssFileView tr td div.Comment div.Edit div.Buttons
+{
+    text-align: right;
+    overflow: auto;
+}
+
+table.CssFileView tr td div.Comment input[type="button"],
+table.CssFileView tr td div.Comment input[type="submit"]
+{
+    margin: 10px 0px 0px 10px;
+}
+
+
+/*******************************************************************/
+/* Change detail viewer styles */
+
+table.CssChangeListDetail
+{
+    table-layout: fixed;
+    width: 100%;
+
+    /* Additional settings in browser-specific files */
+}
+
+table.CssChangeListDetail tr.CssInactiveFile
+{
+    text-decoration: line-through;
+}
+
+table.CssChangeListDetail td.CssTitle
+{
+    font-weight: bold;
+    width: 100px;
+}
+
+table.CssChangeListDetail td.CssBody
+{
+}
+
+table.CssChangeListDetail td.CssNewIcon
+{
+    text-align: right;
+}
+
+table.CssChangeListReviewHistory
+{
+    padding-left: 3%;
+    padding-right: 3%;
+    width: 96%;
+}
+
+table.CssChangeListReviewHistory tr td.CssDate
+{
+    width: 175px;
+}
+
+table.CssChangeListReviewHistory tr td.CssName
+{
+    width: 100px;
+}
+
+table.CssChangeListReviewHistory tr td.CssScore
+{
+    width: 200px;
+}
+
+table.CssChangeListReviewHistory tr td.Comment
+{
+}
+
+table.CssChangeListVoteHistory
+{
+    padding-left: 3%;
+    padding-right: 3%;
+    width: 96%;
+}
+
+.CssGeneralCommentInputBox
+{
+    height: 200px;
+    width: 600px;
+}
+
+.CssTopAligned
+{
+    vertical-align: top;
+}
+
+.CssAttachment
+{
+}
+
+/*******************************************************************/
+/* Change comments summary */
+
+Div.CssReviewSummary
+{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    overflow: hidden;
+    white-space: pre-line;
+    text-align: left;
+}
+
+div.CssReviewLineComments
+{
+}
+
+div.CssReviewLineComments a.CssFileName
+{
+}
+
+div.CssReviewLineComments table
+{
+    margin: 20px;
+    width: 100%;
+}
+
+div.CssReviewLineComments table tr td
+{
+    vertical-align: top;
+    padding: 10px;
+}
+
+div.CssReviewLineComments table tr td.CssLineNumber
+{
+    text-align: right;
+    white-space: nowrap;
+    width: 75px;
+}
+
+div.CssReviewLineComments table tr td.CssLineComment
+{
+    vertical-align: top;
+    font-family: Monospace;
+}
+
+/*******************************************************************/
+/* Change summary styles */
+
+div.ChangesSummarySection
+{
+}
+
+div.ChangesSummaryTable
+{
+}
+
+div.ChangesSummarySection div.Title
+{
+    font-weight: bold;
+    border-bottom-width: 5px;
+}
+
+div.ChangesSummarySection table
+{
+    margin-left: 3%;
+    margin-right: 3%;
+    width: 94%;
+    margin:5;
+    border-collapse: collapse;
+    border: 0;
+    table-layout: fixed;
+}
+
+div.ChangesSummarySection table tr
+{
+}
+
+div.ChangesSummarySection table tr td
+{
+    vertical-align: top;
+    border: solid 1px #D5D5D5;
+    padding: 4px 2px 4px 2px;
+}
+
+div.ChangesSummarySection table tr td,
+div.ChangesSummarySection table tr td *
+{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/* Even rows in a table are marked with "CssEven". */
+div.ChangesSummarySection table tr.Even
+{
+    /*background-color: #D5D5D5;*/
+}
+
+div.ChangesSummarySection table tr.Closed
+{
+    /* Grey out closed reviews */
+    color: Gray;
+}
+
+div.ChangesSummarySection table tr td.Date
+{
+    width: 180px;
+}
+
+div.ChangesSummarySection table tr td.Author
+{
+    width: 100px;
+}
+
+div.ChangesSummarySection table tr td.ChangeListName
+{
+    width: 180px;
+}
+
+div.ChangesSummarySection table tr td.Description span
+{
+}
+div.ChangesSummarySection table tr td.Description:hover span
+{
+    display: block;
+    /* additional settings in browser-specific CSS files */
+}
+
+/*******************************************************************/
+/* Navigator styles */
+.CssNavigatorUpArrow
+{
+    position:fixed;
+    z-index: 10;
+    top: 0px;
+    width: 32px;
+    height: 42px;
+    background-image: url(../images/uparrow.png);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+}
+
+.CssNavigatorDownArrow
+{
+    position:fixed;
+    z-index: 10;
+    bottom: 0px;
+    width: 32px;
+    height: 42px;
+    background-image: url(../images/downarrow.png);
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+/*******************************************************************/
+/* Hint styles */
+.CssHint
+{
+    z-index: 10;
+    background-color: Yellow;
+    position: absolute;
+}
+
+/*******************************************************************/
+/* Stats styles */
+.CssStatsHeaderCell
+{
+    vertical-align: top;
+    width: 250px;
+}
+
+.CssStatsHistoryHeader
+{
+    font-size: large;
+    font-weight: bold;
+    width: 180px;
+    height: 30px;
+    padding-top: 10px;
+}
+
+img.bg
+{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
+}

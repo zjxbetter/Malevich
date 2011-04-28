@@ -1,0 +1,17 @@
+﻿Dear {Reviewee},
+
+Your code review (http://{Webserver}/{WebRoot}/default.aspx?cid={MalevichId}) for the change list {CL} is now very, very old!
+
+Chances are that the change has already been submitted and you just need to close the review:
+    review close {CL}
+
+Or delete it if the change has been abandoned:
+    review delete {CL}
+
+Otherwise consider reminding your reviewers about it!
+
+  --  Malevich
+
+---------
+
+{Details}

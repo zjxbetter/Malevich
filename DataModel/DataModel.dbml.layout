@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.375, 8.5" name="CodeReviewDataModel">
+  <DataContextMoniker Name="/CodeReviewDataContext" />
+  <nestedChildShapes>
+    <classShape Id="922d44b1-79e6-4d48-9ef4-46f6a12776a6" absoluteBounds="0.875, 6, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/CodeReviewDataContext/ChangeFile" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e19a9937-ea49-4e3c-9a12-d27e09b0c4b7" absoluteBounds="0.88999999999999968, 6.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="45ce4707-7fed-4818-93e8-d1029e0a9329" absoluteBounds="3.875, 5.75, 2, 2.5401025390624996">
+      <DataClassMoniker Name="/CodeReviewDataContext/FileVersion" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8502bd8d-c35f-4b6f-a493-ab711a37a9a0" absoluteBounds="3.8900000000000006, 6.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.875 : 7.10029465494792); (3.875 : 7.10029465494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/CodeReviewDataContext/ChangeFile/ChangeFile_FileVersion" />
+      <nodes>
+        <classShapeMoniker Id="922d44b1-79e6-4d48-9ef4-46f6a12776a6" />
+        <classShapeMoniker Id="45ce4707-7fed-4818-93e8-d1029e0a9329" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="ef1fa6b0-f42f-419b-8d5d-d2fb390fdd71" absoluteBounds="6.5, 5.875, 2, 1.9631982421874996">
+      <DataClassMoniker Name="/CodeReviewDataContext/Comment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="79f9964d-b6e6-4fcd-8ef4-c72be9fa6912" absoluteBounds="6.5150000000000006, 6.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="30099871-c6a7-4fe5-87ef-85f332823505" absoluteBounds="6.5, 3.625, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/CodeReviewDataContext/Review" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4197273a-31f0-42d3-8078-f6a6540330b0" absoluteBounds="6.5150000000000006, 4.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.875 : 6.85659912109375); (6.5 : 6.85659912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/CodeReviewDataContext/FileVersion/FileVersion_Comment" />
+      <nodes>
+        <classShapeMoniker Id="45ce4707-7fed-4818-93e8-d1029e0a9329" />
+        <classShapeMoniker Id="ef1fa6b0-f42f-419b-8d5d-d2fb390fdd71" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.5 : 5.54288981119792); (7.5 : 5.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/CodeReviewDataContext/Review/Review_Comment" />
+      <nodes>
+        <classShapeMoniker Id="30099871-c6a7-4fe5-87ef-85f332823505" />
+        <classShapeMoniker Id="ef1fa6b0-f42f-419b-8d5d-d2fb390fdd71" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="cd7c74cf-25b4-401a-933c-451114a46009" absoluteBounds="0.875, 0.5, 2, 1.3862939453125">
+      <DataClassMoniker Name="/CodeReviewDataContext/MailChangeList" />
+      <nestedChildShapes>
+        <elementListCompartment Id="adf25313-b6c8-47b5-af0c-75efdb5c5f8e" absoluteBounds="0.89000000000000012, 0.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0739a9e3-cbeb-4605-8e01-f74b2b5a6cbe" absoluteBounds="6.5, 2.125, 2, 1.1939925130208331">
+      <DataClassMoniker Name="/CodeReviewDataContext/MailReview" />
+      <nestedChildShapes>
+        <elementListCompartment Id="682b59e1-057c-490f-955c-0a1c607f2ed1" absoluteBounds="6.515, 2.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.5 : 3.625); (7.5 : 3.22115315755208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/CodeReviewDataContext/Review/Review_MailReview" />
+      <nodes>
+        <classShapeMoniker Id="30099871-c6a7-4fe5-87ef-85f332823505" />
+        <classShapeMoniker Id="0739a9e3-cbeb-4605-8e01-f74b2b5a6cbe" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="4c42ee36-047f-433d-9874-62ba68e9592c" absoluteBounds="0.875, 2.25, 2, 1.3862939453124996">
+      <DataClassMoniker Name="/CodeReviewDataContext/Reviewer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="804977f7-8d59-4b95-b7dc-4334abbc2daf" absoluteBounds="0.89000000000000012, 2.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.875 : 2.25); (1.875 : 1.8862939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CodeReviewDataContext/Reviewer/Reviewer_MailChangeList" />
+      <nodes>
+        <classShapeMoniker Id="4c42ee36-047f-433d-9874-62ba68e9592c" />
+        <classShapeMoniker Id="cd7c74cf-25b4-401a-933c-451114a46009" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="c2861bbb-2ca3-4edf-b156-6841aa37f2b8" absoluteBounds="3.75, 2.875, 2, 2.3478011067708326">
+      <DataClassMoniker Name="/CodeReviewDataContext/ChangeList" />
+      <nestedChildShapes>
+        <elementListCompartment Id="348bf3ea-5ddd-41bc-9df2-2a10496d796a" absoluteBounds="3.765, 3.335, 1.9700000000000002, 1.7878011067708333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.75153746153846 : 5.22280110677083); (3.375 : 5.59933856830929); (3.375 : 6.3671875); (2.875 : 6.3671875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/CodeReviewDataContext/ChangeList/ChangeList_ChangeFile" />
+      <nodes>
+        <classShapeMoniker Id="c2861bbb-2ca3-4edf-b156-6841aa37f2b8" />
+        <classShapeMoniker Id="922d44b1-79e6-4d48-9ef4-46f6a12776a6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 4.29111857096354); (6.5 : 4.29111857096354)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/CodeReviewDataContext/ChangeList/ChangeList_Review" />
+      <nodes>
+        <classShapeMoniker Id="c2861bbb-2ca3-4edf-b156-6841aa37f2b8" />
+        <classShapeMoniker Id="30099871-c6a7-4fe5-87ef-85f332823505" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.75 : 3.0859375); (3.375 : 3.0859375); (3.375 : 1.29427083333333); (2.875 : 1.29427083333333)]" manuallyRouted="true" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/CodeReviewDataContext/ChangeList/ChangeList_MailChangeList" />
+      <nodes>
+        <classShapeMoniker Id="c2861bbb-2ca3-4edf-b156-6841aa37f2b8" />
+        <classShapeMoniker Id="cd7c74cf-25b4-401a-933c-451114a46009" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.75 : 3.42361572265625); (2.875 : 3.42361572265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/CodeReviewDataContext/ChangeList/ChangeList_Reviewer" />
+      <nodes>
+        <classShapeMoniker Id="c2861bbb-2ca3-4edf-b156-6841aa37f2b8" />
+        <classShapeMoniker Id="4c42ee36-047f-433d-9874-62ba68e9592c" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="903e5ed2-8e1a-4ccd-b7fa-8b0fa6b680d4" absoluteBounds="6.5, 0.5, 2, 1.3862939453125">
+      <DataClassMoniker Name="/CodeReviewDataContext/MailReviewRequest" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0ac2db20-8328-4b28-83bc-f612f60e8bd7" absoluteBounds="6.5150000000000006, 0.96000000000000085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.75 : 2.875); (6.125 : 2.5); (6.125 : 1.13025024414063); (6.5 : 1.13025024414063)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/CodeReviewDataContext/ChangeList/ChangeList_MailReviewRequest" />
+      <nodes>
+        <classShapeMoniker Id="c2861bbb-2ca3-4edf-b156-6841aa37f2b8" />
+        <classShapeMoniker Id="903e5ed2-8e1a-4ccd-b7fa-8b0fa6b680d4" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="080db7e1-96cc-40ad-b872-f6d474b93990" absoluteBounds="9.125, 0.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/CodeReviewDataContext/UserContext" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1684579e-39ce-4546-a38d-d5d6b8889cf3" absoluteBounds="9.14, 0.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1343eb31-831a-4020-8ac8-642658db483f" absoluteBounds="3.75, 0.5, 2, 1.9631982421875">
+      <DataClassMoniker Name="/CodeReviewDataContext/SourceControl" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7a8863e6-9e41-453f-b97b-db3223496d4e" absoluteBounds="3.7649999999999997, 0.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.76041666666667 : 2.25354248046875); (4.76041666666667 : 2.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/CodeReviewDataContext/SourceControl/SourceControl_ChangeList" />
+      <nodes>
+        <classShapeMoniker Id="1343eb31-831a-4020-8ac8-642658db483f" />
+        <classShapeMoniker Id="c2861bbb-2ca3-4edf-b156-6841aa37f2b8" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="118739f7-e70f-46c6-b27b-245bdc6ada5b" absoluteBounds="0.875, 4, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/CodeReviewDataContext/Attachment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="12475b7d-0d8d-496e-8f09-4d5416c7d58c" absoluteBounds="0.89000000000000012, 4.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.75 : 4.61140055338542); (2.875 : 4.61140055338542)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/CodeReviewDataContext/ChangeList/ChangeList_Attachment" />
+      <nodes>
+        <classShapeMoniker Id="c2861bbb-2ca3-4edf-b156-6841aa37f2b8" />
+        <classShapeMoniker Id="118739f7-e70f-46c6-b27b-245bdc6ada5b" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="f57ed4b4-b258-413a-82d4-06a04a8e462c" absoluteBounds="9.125, 2.25, 2, 1.9631982421875">
+      <DataClassMoniker Name="/CodeReviewDataContext/AuditRecord" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7e7cb327-f5a9-4b6b-b534-dbeabb3c4572" absoluteBounds="9.14, 2.71, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
