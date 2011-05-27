@@ -796,6 +796,18 @@ namespace Malevich
                 " UTC</span>";
         }
 
+		/// <summary>
+		/// Same as WrapTimeStamp but only displays the date
+		/// </summary>
+		/// <param name="ts"> DateTime stamp to wrap. </param>
+		/// <returns> Html element (as string) wrapping the date stamp text. </returns>
+		private static string WrapDateStamp(DateTime ts)
+		{
+			TimeSpan diff = ts - unixEpochOrigin;
+			return "<span name=\"timestamp\" id=\"timestamp\" ticks=\"" + Math.Floor(diff.TotalSeconds) + "\">" + ts.ToShortDateString() +
+				" UTC</span>";
+		}
+
         /// <summary>
         /// Creates and adds a new label to the active page.
         /// </summary>
@@ -3185,7 +3197,7 @@ namespace Malevich
                 confirm.Click += new EventHandler(delegate(object sender, EventArgs e)
                 {
                     DataContext.SubmitReview(review.Id);
-                    Response.Redirect(Request.FilePath + "?cid=" + change.Id);
+					Response.Redirect(Request.FilePath);	// reload the dashboard
                 });
 
                 Button cancel = new Button() { Text = "Cancel", CssClass = "button" };
@@ -3254,7 +3266,10 @@ namespace Malevich
         /// <param name="changeList"> The change list to process. </param>
         private TableRow GetReviewRow(ChangeList changeList, bool includeUserName, bool includeCloseButton = false)
         {
-            TableRow row = new TableRow();
+            
+			
+			
+			TableRow row = new TableRow();
             if (changeList.Stage != 0)
                 row.AppendCSSClass("Closed");
 
@@ -3273,30 +3288,31 @@ namespace Malevich
 				}
 				else 
 				{
-					// Unclosable
 					bool notPending = true;
-					var reviewers = changeList.Reviewers.ToList();
-					foreach (var curReviewList in
-						reviewers.Select(reviewer => changeList.Reviews.Where(review => 
-							review.IsSubmitted == true && review.UserName == reviewer.ReviewerAlias)))
+					var submittedReviewList = changeList.Reviews.Where(rv => rv.IsSubmitted == true);
+					if (submittedReviewList.Count() == 0
+						|| submittedReviewList.All(rv => rv.OverallStatus == 3)) // 3 = Non-Scoring Comment
 					{
-						if (curReviewList.Count() == 0)	// No reviews submitted
+						row.Cells.Add(new TableCell() { CssClass = "Pending" }
+							.Add("Pending".As(HtmlTextWriterTag.Span)));
+						notPending = false;
+					}
+					else
+					{
+						var reviewers = changeList.Reviewers.ToList();
+						foreach (var curReviewer in reviewers)
 						{
-							row.Cells.Add(new TableCell() { CssClass = "Pending" }
-								.Add("Pending".As(HtmlTextWriterTag.Span)));
-							notPending = false;
-							break;
-						}
-						else
-						{
-							if (curReviewList.Last().OverallStatus == 0)	// OverallStatus == 0 is 'Needs Work'
+							var curReviewList = submittedReviewList.Where(rv => rv.UserName == curReviewer.ReviewerAlias);
+
+							if (curReviewList.Count() != 0					// No Reviews
+								&& curReviewList.Last().OverallStatus == 0)	// 0 = Needs Work
 							{
 								row.Cells.Add(new TableCell() { CssClass = "NeedsWork" }
 									.Add("Needs Work".As(HtmlTextWriterTag.Span)));
 								notPending = false;
 								break;
 							}
-						}
+						}	
 					}
 
 					// Closable
@@ -3315,8 +3331,8 @@ namespace Malevich
 			// End Added by CBOBO
 
             // Time stamp
-            row.Cells.Add(new TableCell() { CssClass = "Date" }
-                .Add(WrapTimeStamp(changeList.TimeStamp).As(HtmlTextWriterTag.Span)));
+            row.Cells.Add(new TableCell() { CssClass = "ShortDate" }
+				.Add(changeList.TimeStamp.ToShortDateString().As(HtmlTextWriterTag.Span)));
 
             // Author
 			if (includeUserName)
