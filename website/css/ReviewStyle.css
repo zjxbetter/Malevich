@@ -618,6 +618,22 @@ div.ChangesSummarySection table tr.Closed
     color: Gray;
 }
 
+div.ChangesSummarySection table tr td.NeedsWork
+{
+    color: Red;
+    width: 90px;
+}
+
+div.ChangesSummarySection table tr td.Pending
+{
+	width: 60px;
+}
+
+div.ChangesSummarySection table tr td.ShortDate
+{
+    width: 80px;
+}
+
 div.ChangesSummarySection table tr td.Date
 {
     width: 180px;

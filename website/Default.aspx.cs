@@ -796,6 +796,18 @@ namespace Malevich
                 " UTC</span>";
         }
 
+		/// <summary>
+		/// Same as WrapTimeStamp but only displays the date
+		/// </summary>
+		/// <param name="ts"> DateTime stamp to wrap. </param>
+		/// <returns> Html element (as string) wrapping the date stamp text. </returns>
+		private static string WrapDateStamp(DateTime ts)
+		{
+			TimeSpan diff = ts - unixEpochOrigin;
+			return "<span name=\"timestamp\" id=\"timestamp\" ticks=\"" + Math.Floor(diff.TotalSeconds) + "\">" + ts.ToShortDateString() +
+				" UTC</span>";
+		}
+
         /// <summary>
         /// Creates and adds a new label to the active page.
         /// </summary>
@@ -2949,7 +2961,7 @@ namespace Malevich
                 table.Rows.Add(GetChangeFileRow(file, versions.LastOrDefault(), hasTextBody, latestReview));
             }
 
-            var attachments = (from ll in DataContext.Attachments
+            var attachments = (from ll in DataContext.Attachments 
                                where ll.ChangeListId == cid
                                orderby ll.TimeStamp
                                select ll);
@@ -3016,6 +3028,7 @@ namespace Malevich
                 }
             }
 
+			//Todo: modify stage logic, stage 1 is pending...
             if (changeList.Stage != 0)
             {
                 HintsData.IsChangeInactive = true;
@@ -3044,7 +3057,7 @@ namespace Malevich
                     DropDownList list = new DropDownList() { ID = "verdictlist" };
                     row[1].Add(list);
 
-                    list.Items.Add(new ListItem() { Text = "Needs work" });
+                    list.Items.Add(new ListItem() { Text = "Needs work" });				
                     list.Items.Add(new ListItem() { Text = "LGTM with minor tweaks" });
                     list.Items.Add(new ListItem() { Text = "LGTM" });
                     list.Items.Add(new ListItem() { Text = "Non-scoring comment" });
@@ -3184,7 +3197,7 @@ namespace Malevich
                 confirm.Click += new EventHandler(delegate(object sender, EventArgs e)
                 {
                     DataContext.SubmitReview(review.Id);
-                    Response.Redirect(Request.FilePath + "?cid=" + change.Id);
+					Response.Redirect(Request.FilePath);	// reload the dashboard
                 });
 
                 Button cancel = new Button() { Text = "Cancel", CssClass = "button" };
@@ -3251,20 +3264,78 @@ namespace Malevich
         /// the CLs where the user is the reviewer, as well as the reviewee.
         /// </summary>
         /// <param name="changeList"> The change list to process. </param>
-        /// <param name="indentOneColumn"> Whether to indent the output by one column. </param>
-        /// <param name="includeReviewOwner"> Whether to include user name. </param>
-        private TableRow GetReviewRow(ChangeList changeList, bool includeUserName)
+        private TableRow GetReviewRow(ChangeList changeList, bool includeUserName, bool includeCloseButton = false)
         {
-            TableRow row = new TableRow();
+            
+			
+			
+			TableRow row = new TableRow();
             if (changeList.Stage != 0)
                 row.AppendCSSClass("Closed");
 
+			// Added by CBOBO
+			if (!includeUserName && includeCloseButton)
+			{
+				
+				bool closed = changeList.Stage == 2;
+				if (closed)
+				{
+					LiteralControl literalControl = new LiteralControl("Closed");
+					TableCell cell = new TableCell();
+					cell.Controls.Add(literalControl);
+					cell.Width = 60;
+					row.Cells.Add(cell);
+				}
+				else 
+				{
+					bool notPending = true;
+					var submittedReviewList = changeList.Reviews.Where(rv => rv.IsSubmitted == true);
+					if (submittedReviewList.Count() == 0
+						|| submittedReviewList.All(rv => rv.OverallStatus == 3)) // 3 = Non-Scoring Comment
+					{
+						row.Cells.Add(new TableCell() { CssClass = "Pending" }
+							.Add("Pending".As(HtmlTextWriterTag.Span)));
+						notPending = false;
+					}
+					else
+					{
+						var reviewers = changeList.Reviewers.ToList();
+						foreach (var curReviewer in reviewers)
+						{
+							var curReviewList = submittedReviewList.Where(rv => rv.UserName == curReviewer.ReviewerAlias);
+
+							if (curReviewList.Count() != 0					// No Reviews
+								&& curReviewList.Last().OverallStatus == 0)	// 0 = Needs Work
+							{
+								row.Cells.Add(new TableCell() { CssClass = "NeedsWork" }
+									.Add("Needs Work".As(HtmlTextWriterTag.Span)));
+								notPending = false;
+								break;
+							}
+						}	
+					}
+
+					// Closable
+					if (notPending)
+					{
+						HyperLink closeBtn = new HyperLink();
+						closeBtn.NavigateUrl = Request.FilePath + "?cid=" + changeList.Id + "&action=close";
+						closeBtn.Text = "[Close]";
+						TableCell cell = new TableCell();
+						cell.Controls.Add(closeBtn);
+						cell.Width = 60;
+						row.Cells.Add(cell);
+					}
+				}
+			}
+			// End Added by CBOBO
+
             // Time stamp
-            row.Cells.Add(new TableCell() { CssClass = "Date" }
-                .Add(WrapTimeStamp(changeList.TimeStamp).As(HtmlTextWriterTag.Span)));
+            row.Cells.Add(new TableCell() { CssClass = "ShortDate" }
+				.Add(changeList.TimeStamp.ToShortDateString().As(HtmlTextWriterTag.Span)));
 
             // Author
-            if (includeUserName)
+			if (includeUserName)
             {
                 row.Cells.Add(new TableCell() { CssClass = "Author" }
                     .Add(changeList.UserName.As(HtmlTextWriterTag.Span)));
@@ -3285,6 +3356,21 @@ namespace Malevich
             return row;
         }
 
+		/// <summary>
+		/// Helper for Literal Control Cell Creation. Cell to be added into a row
+		/// </summary>
+		/// <param name="text">Lable for cell.</param>
+		/// <param name="width">cell width.</param>
+		/// <returns></returns>
+		private TableCell CreateLiteralControlCell(String text, int width )
+		{
+			LiteralControl literalControl = new LiteralControl(text);
+			TableCell cell = new TableCell();
+			cell.Controls.Add(literalControl);
+			cell.Width = width;
+			return cell;
+		}
+
         /// <summary>
         /// Common code for emitting sets of changes for use in the dashboard view.
         /// </summary>
@@ -3292,7 +3378,7 @@ namespace Malevich
         /// <param name="reviews">The reviews to emit into the table.</param>
         /// <param name="includeReviewOwner">Whether to include the review owner.</param>
         /// <returns></returns>
-        private WebControl CreateReviewsSectionCommon(string sectionTitle, IEnumerable<ChangeList> reviews, bool includeReviewOwner)
+        private WebControl CreateReviewsSectionCommon(string sectionTitle, IEnumerable<ChangeList> reviews, bool includeReviewOwner, bool includeCoseButton = false)
         {
             Panel sectionDiv = new Panel() { CssClass = "ChangesSummarySection" };
 
@@ -3303,7 +3389,7 @@ namespace Malevich
             sectionDiv.Controls.Add(table);
 
             foreach (ChangeList changeList in reviews)
-                table.Rows.Add(GetReviewRow(changeList, includeReviewOwner));
+                table.Rows.Add(GetReviewRow(changeList, includeReviewOwner, includeCoseButton));
 
             ApplyRowBackgroundCssStyle(table);
 
@@ -3328,7 +3414,7 @@ namespace Malevich
 
             HintsData.InDashboard = true;
 
-            DateTime historyThreshold = DateTime.Now.AddDays(-14);
+            DateTime historyThreshold = DateTime.Now.AddDays(-7);
             Dictionary<int, ChangeList> allClosedChangeLists = new Dictionary<int, ChangeList>();
             int sourceControlId = GetSourceControlId();
 
@@ -3342,7 +3428,7 @@ namespace Malevich
                     (mc.Stage == 0 || mc.TimeStamp > historyThreshold)
                 select mc;
 
-            ActivePage.Controls.Add(CreateReviewsSectionCommon(usersChangesTitle, myChangesQuery, false));
+            ActivePage.Controls.Add(CreateReviewsSectionCommon(usersChangesTitle, myChangesQuery, false, true));
 
             var myReviewsQuery = sourceControlId == -1 ?
                 from rv in DataContext.Reviewers
@@ -3817,6 +3903,16 @@ namespace Malevich
                     return;
                 }
 
+				// Added by CBOBO
+				if ("close".EqualsIgnoreCase(action))
+				{
+					DataContext.SubmitChangeList(cid);
+					Response.Redirect(Request.FilePath); // reload the dashboard
+					return;
+				}
+				// End Added by CBOBO
+
+
                 if ("makemereviewer".EqualsIgnoreCase(action))
                     AddToReviewers(cid, userName);
                 else
@@ -4081,11 +4177,13 @@ namespace Malevich
         /// <param name="e"></param>
         private void submitReview_Clicked(int changeId, object sender, EventArgs e)
         {
+			// Todo: Check if review is closed before submitting
             DropDownList verdictList = Content.FindControl<DropDownList>("verdictlist");
             int verdict = (verdictList != null) ? verdictList.SelectedIndex : 4;
             TextBox commentText = Content.FindControl<TextBox>("reviewcommenttextbox");
             int? reviewId = null;
             DataContext.AddReview(changeId, commentText.Text, (byte)verdict, ref reviewId);
+
             Response.Redirect(Request.FilePath + "?rid=" + reviewId + "&action=confirm");
         }
 
