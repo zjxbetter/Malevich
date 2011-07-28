@@ -216,7 +216,7 @@ function deleteComment(commentId, callback) {
 function deleteLastCommentIfEmpty(callback) {
     if (last_comment_id) {
         var c = getComment(last_comment_id);
-        if (c && c.edit_textarea.text() == COMMENT_PROMPT) {
+        if (c && c.edit_textarea[0].value == COMMENT_PROMPT) {
             deleteComment(last_comment_id, function () {
                 last_comment_id = null;
                 callback && callback();
