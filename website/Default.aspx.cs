@@ -3266,9 +3266,8 @@ namespace Malevich
         /// <param name="changeList"> The change list to process. </param>
         private TableRow GetReviewRow(ChangeList changeList, bool includeUserName, bool includeCloseButton = false)
         {
-            
-			
-			
+        	const int NeedsWork = 0, Closed = 2, NonScoringComment = 3, UnmarkedComment = 4;
+    
 			TableRow row = new TableRow();
             if (changeList.Stage != 0)
                 row.AppendCSSClass("Closed");
@@ -3276,9 +3275,7 @@ namespace Malevich
 			// Added by CBOBO
 			if (!includeUserName && includeCloseButton)
 			{
-				
-				bool closed = changeList.Stage == 2;
-				if (closed)
+				if (changeList.Stage == Closed)
 				{
 					LiteralControl literalControl = new LiteralControl("Closed");
 					TableCell cell = new TableCell();
@@ -3289,23 +3286,25 @@ namespace Malevich
 				else 
 				{
 					bool notPending = true;
-					var submittedReviewList = changeList.Reviews.Where(rv => rv.IsSubmitted == true);
+					// Check if all reviews are Non-scoring comments or Unmarked Comments
+					var submittedReviewList = changeList.Reviews.Where(rv => rv.IsSubmitted);
 					if (submittedReviewList.Count() == 0
-						|| submittedReviewList.All(rv => rv.OverallStatus == 3)) // 3 = Non-Scoring Comment
+						|| submittedReviewList.All(rv => (rv.OverallStatus == NonScoringComment 
+						|| rv.OverallStatus == UnmarkedComment))) 
 					{
 						row.Cells.Add(new TableCell() { CssClass = "Pending" }
 							.Add("Pending".As(HtmlTextWriterTag.Span)));
 						notPending = false;
 					}
-					else
+					else // Look for Needs work in reviews
 					{
 						var reviewers = changeList.Reviewers.ToList();
 						foreach (var curReviewer in reviewers)
 						{
 							var curReviewList = submittedReviewList.Where(rv => rv.UserName == curReviewer.ReviewerAlias);
 
-							if (curReviewList.Count() != 0					// No Reviews
-								&& curReviewList.Last().OverallStatus == 0)	// 0 = Needs Work
+							if (curReviewList.Count() != 0	// No Reviews
+								&& curReviewList.Last().OverallStatus == NeedsWork)
 							{
 								row.Cells.Add(new TableCell() { CssClass = "NeedsWork" }
 									.Add("Needs Work".As(HtmlTextWriterTag.Span)));
