@@ -1,0 +1,312 @@
+﻿/*-----------------------------------------------------------------------
+ * <copyright>
+ * Copyright (C) Sergey Solyanik for The Malevich Project.
+ *
+ * This file is subject to the terms and conditions of the Microsoft Public License (MS-PL).
+ * See http://www.microsoft.com/opensource/licenses.mspx#Ms-PL for more details.
+ * </copyright>
+ *-----------------------------------------------------------------------*/
+body
+{
+}
+
+/* Header styles */
+.CssHeader
+{
+    width: 100%;
+}
+
+.CssHeaderMyReviews
+{
+    font-size: small;
+    vertical-align: top;
+    width: 90px;
+}
+
+.CssHeaderSettings
+{
+    font-size: small;
+    vertical-align: top;
+    width: 50px;
+}
+
+.CssHeaderStats
+{
+    font-size: small;
+    vertical-align: top;
+    width: 35px;
+}
+
+.CssHeaderHelp
+{
+    font-size: small;
+    vertical-align: top;
+    width: 35px;
+}
+
+/* Settings styles */
+.CssSettingsTable
+{
+    width: 50%;
+}
+
+.CssSettingsMarginCell
+{
+    width: 30%;
+}
+
+.CssSettingsDataCell
+{
+    width: 70%;
+}
+
+.CssSettingsHeaderCell
+{
+    vertical-align: top;
+    width: 100%;
+}
+
+/* File viewer styles */
+.CssNavTable
+{
+}
+
+.CssNavTableBackToChange
+{
+}
+
+.CssNavTableNextFile
+{
+    padding-left: 20px;
+}
+
+.CssNavTableShortcuts
+{
+    padding-left: 20px;
+}
+
+.CssNavTableDiffStyle
+{
+    padding-left: 20px;
+    width: 200px;
+}
+
+/* Diff viewer styles */
+.CssLineNumber
+{
+    vertical-align: top;
+    text-align: right;
+    padding: 1px 1px 1px 1px;
+}
+
+.CssLineText
+{
+    vertical-align: top;
+    text-align: left;
+    padding: 1px 1px 1px 1px;
+}
+
+.CssLineChanged
+{
+    background-color: #ffff00;
+}
+
+.CssLineAdded
+{
+    background-color: #00ff00;
+}
+
+.CssLineDeleted
+{
+    background-color: #ff0000;
+}
+
+.CssDiffTableTwoColumns
+{
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+.CssDiffTableUnified
+{
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+
+.CssDiffTableOneColumn
+{
+    table-layout: fixed;
+}
+
+.CssCommentsTable
+{
+    table-layout: fixed;
+}
+
+.CssCommentTextWrapper
+{
+    background-color: #ccc;
+    border: 1px solid #000;
+    padding: 10px;
+    word-wrap: break-word;
+}
+
+/* Change viewer styles */
+
+.CssReviewHistory
+{
+    width: 100%;
+}
+
+.CssReviewHistoryDate
+{
+    width: 175px;
+}
+
+.CssReviewHistoryName
+{
+    width: 100px;
+}
+
+.CssReviewHistoryScore
+{
+    width: 200px;
+}
+
+.CssReviewHistoryComment
+{
+}
+
+.CssGeneralCommentInputBox
+{
+    height: 200px;
+    width: 600px;
+}
+
+.CssTopAligned
+{
+    vertical-align: top;
+}
+
+.CssConfirmCancelTable
+{
+    width: 600px;
+}
+
+.CssInactiveFile
+{
+    text-decoration: line-through;
+}
+
+.CssAttachment
+{
+}
+
+.CssCommentsSummaryTable
+{
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 800px;
+}
+
+.CssCommentsSummaryFileHeaderSize
+{
+    width: 800px;
+}
+
+.CssCommentsSummaryLineCellSize
+{
+    width: 100px;
+}
+
+.CssCommentsSummaryCommentCellSize
+{
+    width: 700px;
+}
+
+.CssCommentsSummaryWrapper
+{
+    word-wrap: break-word;
+}
+
+/* Dashboard styles */
+
+.CssReviewTimestamp
+{
+    vertical-align: top;
+    width: 160px;
+}
+
+.CssReviewCL
+{
+    vertical-align: top;
+    width: 80px;
+}
+
+.CssReviewSpacerColumn
+{
+    width: 100px;
+}
+
+.CssReviewAuthorColumn
+{
+    vertical-align: top;
+    width: 100px;
+}
+
+.CssReviewDescription
+{
+}
+
+.CssDashboardNavigationCell
+{
+    width: 150px;
+}
+
+/* Navigator styles */
+.CssNavigatorUpArrow
+{
+    background-image:url("uparrow.png");
+    background-position:center center;
+    background-repeat:no-repeat;
+    position:absolute;
+    z-index:10;
+    width: 32px;
+    height: 32px;
+}
+
+.CssNavigatorDownArrow
+{
+    background-image:url("downarrow.png");
+    background-position:center center;
+    background-repeat:no-repeat;
+    position:absolute;
+    z-index:10;
+    width: 32px;
+    height: 32px;
+}
+
+/* Hint styles */
+.CssHint
+{
+    z-index: 10;
+    background-color: Yellow;
+    position: absolute;
+}
+
+/* Stats styles */
+.CssStatsHeaderCell
+{
+    vertical-align: top;
+    width: 250px;
+}
+
+.CssStatsHistoryHeader
+{
+    font-size: large;
+    font-weight: bold;
+    width: 180px;
+    height: 30px;
+    padding-top: 10px;
+}
