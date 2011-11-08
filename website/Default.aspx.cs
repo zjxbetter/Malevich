@@ -3090,6 +3090,14 @@ namespace Malevich
 					.AppendCSSClass("button");
 			}
 
+			if (iOwnTheChange && changeList.Stage != 2 && /* 2 = closed */
+				GetChangeListStatus(changeList) == ChangeListStatus.Closable)
+			{
+				AddLabel("<br>");
+				AddLink("Close Review", "?cid=" + changeList.Id + "&action=close")
+					.AppendCSSClass("button");
+			}
+
 			if (iOwnTheChange)
 			{
 				HintsData.IsChangeAuthor = true;
@@ -3266,8 +3274,6 @@ namespace Malevich
 		/// <param name="changeList"> The change list to process. </param>
 		private TableRow GetReviewRow(ChangeList changeList, bool includeUserName, bool includeCloseButton = false)
 		{
-			const int NeedsWork = 0, Closed = 2, NonScoringComment = 3, UnmarkedComment = 4;
-	
 			TableRow row = new TableRow();
 			if (changeList.Stage != 0)
 				row.AppendCSSClass("Closed");
@@ -3275,7 +3281,7 @@ namespace Malevich
 			// Added by CBOBO
 			if (!includeUserName && includeCloseButton)
 			{
-				if (changeList.Stage == Closed)
+				if (changeList.Stage == 2) // 2 = Closed
 				{
 					LiteralControl literalControl = new LiteralControl("Closed");
 					TableCell cell = new TableCell();
@@ -3283,47 +3289,29 @@ namespace Malevich
 					cell.Width = 60;
 					row.Cells.Add(cell);
 				}
-				else 
+				else
 				{
-					bool notPending = true;
-					// Check if all reviews are Non-scoring comments or Unmarked Comments
-					var submittedReviewList = changeList.Reviews.Where(rv => rv.IsSubmitted);
-					if (submittedReviewList.Count() == 0
-						|| submittedReviewList.All(rv => (rv.OverallStatus == NonScoringComment 
-						|| rv.OverallStatus == UnmarkedComment))) 
+					switch(GetChangeListStatus(changeList))
 					{
-						row.Cells.Add(new TableCell() { CssClass = "Pending" }
-							.Add("Pending".As(HtmlTextWriterTag.Span)));
-						notPending = false;
-					}
-					else // Look for Needs work in reviews
-					{
-						var reviewers = changeList.Reviewers.ToList();
-						foreach (var curReviewer in reviewers)
-						{
-							var curReviewList = submittedReviewList.Where(rv => rv.UserName == curReviewer.ReviewerAlias);
-
-							if (curReviewList.Count() != 0	// No Reviews
-								&& curReviewList.Last().OverallStatus == NeedsWork)
-							{
-								row.Cells.Add(new TableCell() { CssClass = "NeedsWork" }
-									.Add("Needs Work".As(HtmlTextWriterTag.Span)));
-								notPending = false;
-								break;
-							}
-						}	
-					}
-
-					// Closable
-					if (notPending)
-					{
-						HyperLink closeBtn = new HyperLink();
-						closeBtn.NavigateUrl = Request.FilePath + "?cid=" + changeList.Id + "&action=close";
-						closeBtn.Text = "[Close]";
-						TableCell cell = new TableCell();
-						cell.Controls.Add(closeBtn);
-						cell.Width = 60;
-						row.Cells.Add(cell);
+						case ChangeListStatus.Pending:
+							row.Cells
+								.Add(new TableCell() { CssClass = "Pending" }
+								.Add("Pending".As(HtmlTextWriterTag.Span)));
+							break;
+						case ChangeListStatus.NeedsWork:
+							row.Cells
+								.Add(new TableCell() { CssClass = "NeedsWork" }
+								.Add("Needs Work".As(HtmlTextWriterTag.Span)));
+							break;
+						case ChangeListStatus.Closable:
+							HyperLink closeBtn = new HyperLink();
+							closeBtn.NavigateUrl = Request.FilePath + "?cid=" + changeList.Id + "&action=close";
+							closeBtn.Text = "[Close]";
+							TableCell cell = new TableCell();
+							cell.Controls.Add(closeBtn);
+							cell.Width = 60;
+							row.Cells.Add(cell);
+							break;
 					}
 				}
 			}
@@ -3355,20 +3343,63 @@ namespace Malevich
 			return row;
 		}
 
-		/// <summary>
-		/// Helper for Literal Control Cell Creation. Cell to be added into a row
-		/// </summary>
-		/// <param name="text">Lable for cell.</param>
-		/// <param name="width">cell width.</param>
-		/// <returns></returns>
-		private TableCell CreateLiteralControlCell(String text, int width )
+		// Added by JEMAU
+
+		enum ChangeListStatus
 		{
-			LiteralControl literalControl = new LiteralControl(text);
-			TableCell cell = new TableCell();
-			cell.Controls.Add(literalControl);
-			cell.Width = width;
-			return cell;
+			Pending, NeedsWork, Closable
 		}
+
+		const int NeedsWork = 0, NonScoringComment = 3, UnmarkedComment = 4;
+		
+		/// <summary>
+		/// Get the ChangeListStatus for the provided changelist, can be Pending, Needswork, or Closable.
+		/// Does not check if changelist stage is closed.
+		/// </summary>
+		/// <param name="changeList">Changelist whos status is of interest</param>
+		/// <returns>ChangeListStatus enum</returns>
+		private ChangeListStatus GetChangeListStatus(ChangeList changeList)
+		{
+			var sumbittedReviews = changeList.Reviews.Where(rv => rv.IsSubmitted);
+
+			if (sumbittedReviews.Count() == 0 
+				|| sumbittedReviews.All(rv => rv.OverallStatus == NonScoringComment || rv.OverallStatus == UnmarkedComment))
+			{
+				return ChangeListStatus.Pending;
+			}
+
+			if (IsChangeListNeedsWork(changeList))
+			{
+				return ChangeListStatus.NeedsWork;
+			}
+
+			// Must be closable
+			return ChangeListStatus.Closable;
+		}
+
+		/// <summary>
+		/// Determine if the ChangeList has  Needs Work status. Should be run after checking in the changelist is Pending.
+		/// A changelist needs work if one or more reviewers have commented 'NeedsWork' as their last comment. Non-scoring comments
+		/// and UnmarkedComments do not count.
+		/// </summary>
+		/// <returns>True if the changelist meets the requirments of needs work, otherwise false</returns>
+		private bool IsChangeListNeedsWork(ChangeList changeList)
+		{
+			foreach (var curReviewer in changeList.Reviewers)
+			{
+				var curReviewList = changeList.Reviews.Where(rv => rv.IsSubmitted 
+						&& rv.UserName == curReviewer.ReviewerAlias 
+						&& rv.OverallStatus != NonScoringComment && rv.OverallStatus != UnmarkedComment);
+
+				if (curReviewList.Count() != 0 && curReviewList.Last().OverallStatus == NeedsWork)
+				{
+					return true;
+				}
+			}
+			return false; // None of the reviews match 'needs work' case
+		}
+
+		// End Added by JEMAU
 
 		/// <summary>
 		/// Common code for emitting sets of changes for use in the dashboard view.
