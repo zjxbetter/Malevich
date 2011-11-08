@@ -170,8 +170,10 @@ function createNewComment(el, id, stamp, insertAfter) {
     newComment.id = commentId;
     newComment.className = 'Comment';
     newComment.innerHTML = html;
-    $(newComment).hide();
-    $(newComment).fadeOut(0);
+	$(newComment).hide().fadeOut(0)
+		.keyup(function(e) {
+			if (e.keyCode == 27) { $(newComment).find('input[value="cancel"]').click(); } // esc
+		});
 
     if (insertAfter)
         newComment = $(insertAfter).after(newComment).next();
