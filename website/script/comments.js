@@ -251,8 +251,12 @@ function editExistingComment(commentId) {
     c.edit_textarea.text(c.display_body.text());
 
     hideElement(c.display, function () {
-        c.edit.find('[value=remove]:button').show();
-        showElement(c.edit);
+    	c.edit.find('[value=remove]:button').show();
+    	c.edit_textarea.keyup(function (e) {
+    		if (e.keyCode == 27) { c.edit.find('input[value="cancel"]').click(); } // esc
+    	});
+    	showElement(c.edit);
+    	c.edit_textarea.focus();
     });
 }
 
